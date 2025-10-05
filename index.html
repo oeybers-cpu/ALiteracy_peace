@@ -247,6 +247,14 @@
             width: 100%;
         }
 
+        /* CSS adjustments for specific images */
+        #intro .card img,
+        #atal .card img {
+            /* Make the face more visible */
+            filter: brightness(1.1) contrast(1.1);
+            object-position: center 30%; /* Adjust if face is in a specific part of image */
+        }
+
         .card {
             background: var(--card-bg);
             border-radius: 12px;
@@ -456,9 +464,10 @@
                 <div class="card-grid">
                     <div class="card">
                         <h3 class="card-subtitle">The Power of Inclusive Education</h3>
+                        <!-- Option 1: Keep original image but adjust with CSS -->
                         <img src="https://github.com/oeybers-cpu/ALiteracy_peace/blob/main/think%20digi%20essay.png?raw=true" 
-                             alt="Think digital essay"
-                             onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Think+Digital+Placeholder';"
+                             alt="Student thinking about digital literacy"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80';"
                              class="card-image">
                         <p class="card-content">In an increasingly interconnected world, academic literacy emerges as a powerful tool for building sustainable peace at local and regional levels. When grounded in inclusive, culturally responsive pedagogies, academic literacy becomes more than a set of skills—it transforms into a vehicle for social justice, community development, and addressing the root causes of violence.</p>
                         <p class="card-content">The African Theory of Academic Literacy (ATAL) provides a powerful framework for realizing this vision by connecting learning to community needs and creating educational environments where diverse students can thrive.</p>
@@ -499,9 +508,10 @@
                 <div class="card-grid">
                     <div class="card">
                         <h3 class="card-subtitle">Ubuntu Philosophy in Education</h3>
+                        <!-- Option 1: Keep original image but adjust with CSS -->
                         <img src="https://github.com/oeybers-cpu/ALiteracy_peace/blob/main/think%20digi%20essay%20with%20peace%20signs.png?raw=true" 
-                             alt="Peace studies concepts with digital elements"
-                             onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Peace+Studies+Concepts+Placeholder';"
+                             alt="Student engaging with peace studies concepts"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80';"
                              class="card-image">
                         <p class="card-content">An African Theory of Academic Literacy (ATAL) emerges from the recognition that academic literacy must be grounded in the cultural, linguistic, and epistemological contexts of learners. Rooted in <strong>Ubuntu philosophy</strong>—which emphasizes the interdependence of communities and individuals—ATAL prioritizes values including love, unity, compassion, and cooperation.</p>
                         <div class="highlight">"Ubuntu philosophy emphasizes that knowledge is constructed communally, and learning occurs through relationships and shared experiences."</div>
