@@ -284,7 +284,7 @@
         
         /* Specific styling for Home Section cards */
         .content-section#home .card-grid {
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 1fr 1fr;
             gap: 30px;
         }
         
@@ -315,13 +315,12 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px; /* Match card styling */
-            margin-top: 10px;
-            margin-bottom: 20px; /* Add space below the image */
+            margin: 10px 0 15px 0; /* Add space below the image */
             display: block;
             box-shadow: 0 0 10px rgba(79, 195, 247, 0.5); /* Subtle glow matching primary dark */
             border: 1px solid rgba(79, 195, 247, 0.2);
             /* Consistent sizing for all images */
-            max-height: 220px;
+            max-height: 200px;
             object-fit: cover;
             width: 100%;
         }
@@ -336,7 +335,10 @@
             backdrop-filter: blur(5px);
             position: relative;
             overflow: hidden;
-            height: 100%;
+            /* Set consistent card height */
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
         }
 
         .card::before {
@@ -370,6 +372,7 @@
             font-size: 1rem;
             word-wrap: break-word;
             overflow-wrap: break-word;
+            flex-grow: 1;
         }
 
         .highlight {
@@ -425,6 +428,7 @@
             align-items: center;
             justify-content: center;
             min-height: 250px;
+            flex-grow: 1;
         }
 
         /* Footer and Utility */
@@ -521,6 +525,10 @@
             .positive-peace-row {
                 grid-column: 1;
                 grid-template-columns: 1fr;
+            }
+            
+            .card {
+                min-height: auto;
             }
         }
     </style>
