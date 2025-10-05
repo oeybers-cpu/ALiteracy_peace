@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic Literacy for Peace</title>
     <!-- Using Inter for general text and Orbitron for titles -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght=700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Global Variables */
@@ -284,7 +284,7 @@
         
         /* Specific styling for Home Section cards */
         .content-section#home .card-grid {
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 1fr 2fr 1fr;
             gap: 30px;
         }
 
@@ -378,6 +378,23 @@
 
         .key-point:hover {
             background: rgba(224, 64, 251, 0.1);
+        }
+
+        /* Global Peace Banner Styles */
+        .global-peace-banner {
+            /* 135deg gives a nice diagonal sweep across the banner */
+            background: linear-gradient(135deg, 
+                #0a0a14 0%,          /* Dark Blue/Darkest Base */
+                #5e35b1 30%,         /* Purple Accent */
+                #00bcd4 70%,         /* Turquoise Accent */
+                #4fc3f7 100%         /* Aqua Blue Accent */
+            );
+            /* Optional: Add a subtle inner shadow to make the text pop */
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+            
+            /* Apply Inter font and text effects */
+            font-family: 'Inter', sans-serif;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4); /* Subtle white glow */
         }
 
         /* Footer and Utility */
@@ -511,6 +528,16 @@
                              onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Collaboration+Placeholder';"
                              class="card-image">
                         <p class="card-content">When grounded in inclusive, culturally responsive pedagogies, academic literacy becomes more than a set of skills; it transforms into a vehicle for social justice, community development, and the creation of conditions that eliminate the root causes of violence. The African Theory of Academic Literacy (ATAL) provides a powerful framework for realising this vision. By grounding academic literacy instruction in Ubuntu philosophy, validating indigenous knowledge systems, and connecting learning to community needs, ATAL creates educational environments where diverse students can thrive.</p>
+                    </div>
+                    <!-- New Global Peace Banner Card -->
+                    <div class="card">
+                        <h3 class="card-subtitle">Global Peace Banner</h3>
+                        <div class="global-peace-banner w-full rounded-2xl shadow-2xl p-6 sm:p-10">
+                            <h1 class="text-white text-center font-extrabold tracking-tight" 
+                                style="font-size: clamp(2.5rem, 6vw, 5rem);">
+                                Global Peace
+                            </h1>
+                        </div>
                     </div>
                 </div>
             </section>
