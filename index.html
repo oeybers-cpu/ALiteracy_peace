@@ -284,7 +284,21 @@
         
         /* Specific styling for Home Section cards */
         .content-section#home .card-grid {
-            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+        
+        /* Specific styling for Peace Studies section */
+        .content-section#peace-studies .card-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        /* Special layout for Sustainable Peace Framework and Global Peace Banner */
+        .sustainable-peace-row {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 30px;
         }
 
@@ -395,6 +409,10 @@
             /* Apply Inter font and text effects */
             font-family: 'Inter', sans-serif;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.4); /* Subtle white glow */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
         }
 
         /* Footer and Utility */
@@ -478,6 +496,15 @@
             .content-section#home .card-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .content-section#peace-studies .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sustainable-peace-row {
+                grid-column: 1;
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -529,16 +556,6 @@
                              class="card-image">
                         <p class="card-content">When grounded in inclusive, culturally responsive pedagogies, academic literacy becomes more than a set of skills; it transforms into a vehicle for social justice, community development, and the creation of conditions that eliminate the root causes of violence. The African Theory of Academic Literacy (ATAL) provides a powerful framework for realising this vision. By grounding academic literacy instruction in Ubuntu philosophy, validating indigenous knowledge systems, and connecting learning to community needs, ATAL creates educational environments where diverse students can thrive.</p>
                     </div>
-                    <!-- New Global Peace Banner Card -->
-                    <div class="card">
-                        <h3 class="card-subtitle">Global Peace Banner</h3>
-                        <div class="global-peace-banner w-full rounded-2xl shadow-2xl p-6 sm:p-10">
-                            <h1 class="text-white text-center font-extrabold tracking-tight" 
-                                style="font-size: clamp(2.5rem, 6vw, 5rem);">
-                                Global Peace
-                            </h1>
-                        </div>
-                    </div>
                 </div>
             </section>
 
@@ -564,14 +581,29 @@
                         <h3 class="card-subtitle">Positive vs. Negative Peace</h3>
                         <p class="card-content">Central to contemporary peace studies is the distinction between negative and positive peace. **Negative peace** refers simply to the absence of violence, while **positive peace** encompasses the conditions that eliminate the causes of violence—including social justice, equitable resource distribution, respect for human rights, and inclusive governance structures.</p>
                     </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Sustainable Peace Framework</h3>
-                        <p class="card-content">This broader conception recognises that sustainable peace requires addressing structural inequalities and creating environments where all individuals can flourish. It moves beyond mere conflict resolution to proactive peacebuilding through education, development, and social transformation.</p>
-                        <div class="key-points">
-                            <div class="key-point">Positive Peace</div>
-                            <div class="key-point">Social Justice</div>
-                            <div class="key-point">Human Rights</div>
-                            <div class="key-point">Equity</div>
+                    
+                    <!-- Special row for Sustainable Peace Framework and Global Peace Banner -->
+                    <div class="sustainable-peace-row">
+                        <div class="card">
+                            <h3 class="card-subtitle">Sustainable Peace Framework</h3>
+                            <p class="card-content">This broader conception recognises that sustainable peace requires addressing structural inequalities and creating environments where all individuals can flourish. It moves beyond mere conflict resolution to proactive peacebuilding through education, development, and social transformation.</p>
+                            <div class="key-points">
+                                <div class="key-point">Positive Peace</div>
+                                <div class="key-point">Social Justice</div>
+                                <div class="key-point">Human Rights</div>
+                                <div class="key-point">Equity</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Global Peace Banner Card -->
+                        <div class="card">
+                            <h3 class="card-subtitle">Global Peace Banner</h3>
+                            <div class="global-peace-banner w-full rounded-2xl shadow-2xl p-6 sm:p-10">
+                                <h1 class="text-white text-center font-extrabold tracking-tight" 
+                                    style="font-size: clamp(2.5rem, 6vw, 5rem);">
+                                    Global Peace
+                                </h1>
+                            </div>
                         </div>
                     </div>
                 </div>
