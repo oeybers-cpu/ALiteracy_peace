@@ -4,616 +4,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Literacy for Peace</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Orbitron:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Philosophy of Education Cards</title>
+    <!-- Load Tailwind CSS (corrected URL) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load a modern, bold font (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap" rel="stylesheet">
     <style>
+        /* Define Colors for Digital Glow */
         :root {
-            --primary-light: #81d4fa;
-            --primary-dark: #4fc3f7;
-            --accent-purple: #e040fb;
-            --bg-dark: #0a0a14;
-            --bg-darker: #050508;
-            --text-light: #f0f0f0;
-            --card-bg: rgba(20, 20, 30, 0.85);
-            --border-color: rgba(207, 64, 255, 0.3);
-            --royal-blue: #4169E1;
-            --gold: #FFD700;
-            --silver: #c0c0c0;
-            --card-padding: 20px;
-            --card-gap: 25px;
+            --glow-blue: #00f0ff;    /* Vibrant Digital Blue */
+            --glow-purple: #a020f0;  /* Electric Purple */
+            --glow-aqua: #00FFFF;    /* Pure Aqua */
+            --dark-bg: #030318;      /* Deep Midnight Blue/Black */
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Set Body to a complementary dark background */
         body {
-            background: linear-gradient(135deg, var(--bg-darker), var(--bg-dark));
-            color: var(--text-light);
-            min-height: 100vh;
+            background-color: var(--dark-bg);
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
         }
 
-        .grid-lines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(79, 195, 247, 0.05) 1px, transparent 1px), 
-                linear-gradient(90deg, rgba(79, 195, 247, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -1;
-        }
-
-        .fixed-nav {
-            position: fixed;
-            z-index: 1002;
-            padding: 15px;
-        }
-
-        .home-tab {
-            top: 10px;
-            right: 10px;
-            background: var(--card-bg);
-            border: 1px solid var(--royal-blue);
-            color: var(--primary-light);
-            padding: 10px 15px;
-            border-radius: 8px;
-            text-decoration: none;
-            box-shadow: 0 0 8px rgba(65, 105, 225, 0.3);
-            font-weight: 500;
-        }
-
-        .home-tab:hover {
-            background: rgba(65, 105, 225, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
-            color: var(--text-light);
-        }
-
-        header {
-            width: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), var(--bg-darker));
-            border-bottom: 3px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px 20px;
-            overflow: hidden;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        header h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            background: linear-gradient(90deg, var(--primary-dark), var(--accent-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 8px rgba(207, 64, 255, 0.7);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            animation: pulseText 3s infinite alternate;
-            z-index: 10;
-        }
-
-        header .subtitle {
-            color: var(--primary-light);
-            font-size: clamp(1rem, 2vw, 1.4rem);
-            max-width: 800px;
-            margin-top: 10px;
-            z-index: 10;
-        }
-
-        .pyramid-header-bg {
-            width: 0;
-            height: 0;
-            border-left: 200px solid transparent;
-            border-right: 200px solid transparent;
-            border-bottom: 300px solid rgba(0, 0, 0, 0.2);
-            position: absolute;
-            bottom: -50px;
-            right: 0;
-            transform: rotateX(0deg) rotateZ(10deg);
-            transform-origin: 50% 100%;
-            z-index: 5;
-            pointer-events: none;
-            opacity: 0.6;
-        }
-
-        .pyramid-header-bg::after {
-            content: '';
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            width: 150px;
-            height: 150px;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(45deg, var(--gold), var(--silver));
-            border-radius: 50%;
-            filter: blur(30px);
-            opacity: 0.9;
+        /* The main banner styling: uses a subtle gradient and shadow */
+        .digital-banner {
+            /* Subtle background gradient to hint at the colors */
+            background: linear-gradient(90deg, #030318 0%, #0d0d3d 50%, #030318 100%);
+            
+            /* Outer glow for the container using the accent colors */
             box-shadow: 
-                0 0 50px 10px var(--gold), 
-                0 0 100px 20px var(--silver);
-            animation: pulseGlow 4s infinite ease-in-out;
+                0 0 10px var(--glow-blue),
+                0 0 20px var(--glow-purple)
+            ;
+            transition: all 0.3s ease-in-out;
+            cursor: default;
         }
 
-        .sun-glow-effect {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, var(--sun-color) 0%, transparent 60%);
-            border-radius: 50%;
-            filter: blur(20px);
-            opacity: 0.4;
-            animation: sunPulse 6s infinite alternate;
-            z-index: 8;
+        /* Hover effect to intensify the glow */
+        .digital-banner:hover {
+            box-shadow: 
+                0 0 15px var(--glow-blue),
+                0 0 30px var(--glow-purple),
+                0 0 45px var(--glow-aqua)
+            ;
         }
 
-        .page-content {
-            display: flex;
-            max-width: 1600px;
-            margin: 30px auto;
-            padding: 0 20px;
-            gap: 30px;
+        /* Text styling for the digital glow effect */
+        .glow-text {
+            color: #ffffff; /* Start with white text */
+            font-weight: 900;
+            
+            /* Apply multi-layer text shadow for the glowing effect */
+            text-shadow: 
+                0 0 2px #fff,             /* Base white glow */
+                0 0 10px var(--glow-aqua),
+                0 0 20px var(--glow-blue),
+                0 0 30px var(--glow-purple);
+            
+            /* Ensure the font size is responsive and impactful */
+            font-size: clamp(2rem, 7vw, 4.5rem);
+            letter-spacing: -0.05em;
         }
 
-        .left-tabs-container {
-            flex-shrink: 0;
-            width: 250px;
-            position: sticky;
-            top: 30px;
-            height: fit-content;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .tab {
-            background: var(--card-bg);
-            border: 1px solid var(--royal-blue);
-            color: var(--royal-blue);
-            padding: 12px 15px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 8px rgba(65, 105, 225, 0.3);
-            font-weight: 500;
-            text-align: left;
-            font-size: 1.1rem;
-        }
-
-        .tab:hover, .tab.active {
-            transform: translateX(5px);
-            box-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
-            color: var(--text-light);
-            border-color: var(--primary-light);
-        }
-        
-        .tab.active {
-            background: rgba(65, 105, 225, 0.4);
-            font-weight: 700;
-        }
-
-        .content-main {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .content-section {
-            scroll-margin-top: 30px;
-        }
-
-        .section-title {
-            color: var(--accent-purple);
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--border-color);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            text-shadow: 0 0 5px rgba(224, 64, 251, 0.5);
-        }
-
-        .card-grid {
+        /* Card container for two-column layout */
+        .card-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--card-gap);
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin: 10px 0 15px 0;
-            display: block;
-            box-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
-            border: 1px solid rgba(79, 195, 247, 0.2);
-            max-height: 200px;
-            object-fit: cover;
-            width: 100%;
+        /* Card styling */
+        .philosophy-card {
+            background: rgba(15, 15, 40, 0.7);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            border: 1px solid rgba(100, 100, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
         }
 
-        /* CSS adjustments for specific images */
-        #intro .card img,
-        #atal .card img {
-            /* Make the face more visible */
-            filter: brightness(1.1) contrast(1.1);
-            object-position: center 30%; /* Adjust if face is in a specific part of image */
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: var(--card-padding);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            backdrop-filter: blur(5px);
-            position: relative;
-            overflow: hidden;
-            min-height: 500px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-dark), var(--accent-purple));
-            z-index: 1;
-        }
-
-        .card:hover {
+        .philosophy-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+            border-color: rgba(100, 100, 255, 0.4);
         }
 
-        .card-subtitle {
-            color: var(--primary-light);
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-            border-bottom: 1px dotted rgba(129, 212, 250, 0.3);
-            padding-bottom: 8px;
+        .card-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-align: center;
         }
 
         .card-content {
-            line-height: 1.7;
-            color: var(--text-light);
-            font-size: 1rem;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            flex-grow: 1;
+            color: #e0e0ff;
+            line-height: 1.6;
+            font-size: 1.1rem;
         }
 
-        .highlight {
-            background: rgba(65, 105, 225, 0.15);
-            border-left: 5px solid var(--royal-blue);
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 4px;
-            font-style: italic;
-            font-size: 1rem;
-            position: relative;
-            color: #ccc;
-        }
-
-        .key-points {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .key-point {
-            background: rgba(20, 20, 30, 0.7);
-            padding: 8px 12px;
-            border-radius: 20px;
-            border: 1px solid var(--accent-purple);
-            font-weight: 500;
-            color: var(--accent-purple);
-            font-size: 0.9rem;
-            transition: background 0.3s;
-        }
-
-        .key-point:hover {
-            background: rgba(224, 64, 251, 0.1);
-        }
-
-        .global-peace-banner {
-            background: linear-gradient(135deg, 
-                #0a0a14 0%,
-                #5e35b1 30%,
-                #00bcd4 70%,
-                #4fc3f7 100%
-            );
-            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
-            font-family: 'Inter', sans-serif;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 250px;
-            flex-grow: 1;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            color: #777;
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border-color);
-            margin-top: 40px;
-            position: relative;
-        }
-
-        .top-link {
-            position: absolute;
-            right: 20px;
-            bottom: 25px;
-            color: var(--primary-dark);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        @keyframes pulseText {
-            0% { text-shadow: 0 0 6px rgba(207, 64, 255, 0.6); }
-            100% { text-shadow: 0 0 15px rgba(207, 64, 255, 0.8); }
-        }
-
-        @keyframes pulseGlow {
-            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
-            100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
-        }
-
-        @keyframes sunPulse {
-            0% { opacity: 0.4; }
-            50% { opacity: 0.7; }
-            100% { opacity: 0.4; }
-        }
-
-        @media (max-width: 1024px) {
-            .page-content {
-                flex-direction: column;
-                padding: 0 15px;
-            }
-
-            .left-tabs-container {
-                position: relative;
-                top: auto;
-                width: 100%;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-                gap: 10px;
-                margin-bottom: 20px;
-            }
-
-            .tab {
-                text-align: center;
-                font-size: 0.95rem;
-                padding: 10px;
-            }
-            
-            .tab:hover, .tab.active {
-                transform: none;
-            }
-
-            .card-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            }
-            
-            .pyramid-header-bg {
-                border-left: 100px solid transparent; 
-                border-right: 100px solid transparent;
-                border-bottom: 150px solid rgba(0, 0, 0, 0.2); 
-                right: -20px;
-                bottom: -20px;
-            }
-            
-            .card {
-                min-height: auto;
+        /* Responsive adjustment for smaller screens */
+        @media (max-width: 768px) {
+            .card-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
-<body>
-    <div class="grid-lines"></div>
-    
-    <a href="https://oeybers-cpu.github.io/a_lit_models/" class="fixed-nav home-tab">Home</a>
-    
-    <header>
-        <div class="sun-glow-effect"></div>
-        <div class="pyramid-header-bg"></div>
+<body class="flex items-center justify-center min-h-screen p-4 bg-gradient-to-b from-[#01010f] to-[#030318]">
+
+    <!-- Two-Column Card Layout -->
+    <div class="card-container">
         
-        <h1>Academic Literacy for Peace</h1>
-        <div class="subtitle">Fostering Local and Regional Harmony Through Inclusive Education</div>
-    </header>
-
-    <div class="page-content">
-        <nav class="left-tabs-container">
-            <a href="#intro" class="tab active">Introduction</a>
-            <a href="#peace-studies" class="tab">Peace Studies</a>
-            <a href="#atal" class="tab">ATAL Framework</a>
-            <a href="#applications" class="tab">Applications</a>
-            <a href="#conclusion" class="tab">Conclusion</a>
-        </nav>
-        
-        <div class="content-main">
-            <!-- Introduction Section -->
-            <section id="intro" class="content-section">
-                <h2 class="section-title">Academic Literacy as a Pathway to Peace</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3 class="card-subtitle">The Power of Inclusive Education</h3>
-                        <!-- Option 1: Keep original image but adjust with CSS -->
-                        <img src="https://github.com/oeybers-cpu/ALiteracy_peace/blob/main/think%20digi%20essay.png?raw=true" 
-                             alt="Student thinking about digital literacy"
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80';"
-                             class="card-image">
-                        <p class="card-content">In an increasingly interconnected world, academic literacy emerges as a powerful tool for building sustainable peace at local and regional levels. When grounded in inclusive, culturally responsive pedagogies, academic literacy becomes more than a set of skills—it transforms into a vehicle for social justice, community development, and addressing the root causes of violence.</p>
-                        <p class="card-content">The African Theory of Academic Literacy (ATAL) provides a powerful framework for realizing this vision by connecting learning to community needs and creating educational environments where diverse students can thrive.</p>
-                        <div class="key-points">
-                            <div class="key-point">Inclusive Education</div>
-                            <div class="key-point">Community Development</div>
-                            <div class="key-point">Social Justice</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Peace Studies Section -->
-            <section id="peace-studies" class="content-section">
-                <h2 class="section-title">Understanding Peace and Conflict Studies</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3 class="card-subtitle">Positive vs. Negative Peace</h3>
-                        <!-- Updated image URL -->
-                        <img src="https://github.com/oeybers-cpu/ALiteracy_peace/blob/main/1759592196.png?raw=true" 
-                             alt="Visual representation of peace concepts"
-                             onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Peace+Concepts+Placeholder';"
-                             class="card-image">
-                        <p class="card-content">Central to contemporary peace studies is the distinction between <strong>negative peace</strong> (the absence of violence) and <strong>positive peace</strong> (the conditions that eliminate the causes of violence). This broader conception recognizes that sustainable peace requires addressing structural inequalities and creating environments where all individuals can flourish.</p>
-                        <div class="highlight">"Positive peace encompasses the conditions that eliminate the causes of violence—including social justice, equitable resource distribution, respect for human rights, and inclusive governance structures."</div>
-                        <p class="card-content">Peace and conflict studies represents an interdisciplinary social science field dedicated to identifying and analyzing both violent and nonviolent behaviors, as well as the structural mechanisms that attend conflicts.</p>
-                        <div class="key-points">
-                            <div class="key-point">Positive Peace</div>
-                            <div class="key-point">Structural Analysis</div>
-                            <div class="key-point">Social Justice</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ATAL Framework Section -->
-            <section id="atal" class="content-section">
-                <h2 class="section-title">The African Theory of Academic Literacy (ATAL)</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3 class="card-subtitle">Ubuntu Philosophy in Education</h3>
-                        <!-- Option 1: Keep original image but adjust with CSS -->
-                        <img src="https://github.com/oeybers-cpu/ALiteracy_peace/blob/main/think%20digi%20essay%20with%20peace%20signs.png?raw=true" 
-                             alt="Student engaging with peace studies concepts"
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80';"
-                             class="card-image">
-                        <p class="card-content">An African Theory of Academic Literacy (ATAL) emerges from the recognition that academic literacy must be grounded in the cultural, linguistic, and epistemological contexts of learners. Rooted in <strong>Ubuntu philosophy</strong>—which emphasizes the interdependence of communities and individuals—ATAL prioritizes values including love, unity, compassion, and cooperation.</p>
-                        <div class="highlight">"Ubuntu philosophy emphasizes that knowledge is constructed communally, and learning occurs through relationships and shared experiences."</div>
-                        <p class="card-content">ATAL addresses educational challenges through several key principles, including multilingual pedagogies that incorporate students' home languages into academic instruction, and connecting disciplinary knowledge to community needs and contexts.</p>
-                        <div class="key-points">
-                            <div class="key-point">Ubuntu Philosophy</div>
-                            <div class="key-point">Cultural Context</div>
-                            <div class="key-point">Community Connection</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Applications Section -->
-            <section id="applications" class="content-section">
-                <h2 class="section-title">Practical Applications for Local and Regional Peace</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3 class="card-subtitle">Building Peace Through Education</h3>
-                        <img src="https://github.com/oeybers-cpu/ALiteracy_peace/blob/main/collaborate.png?raw=true" 
-                             alt="Collaborative peace-building through education"
-                             onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Collaboration+Placeholder';"
-                             class="card-image">
-                        <p class="card-content">Academic literacy instruction grounded in ATAL principles cultivates intercultural competence and social cohesion. When curricula incorporate diverse epistemologies and validate multiple ways of knowing, students learn to navigate different cultural frameworks and appreciate varied perspectives.</p>
-                        <p class="card-content">At the institutional level, universities can implement inclusive academic literacy practices that directly contribute to campus peace and student success. Multilingual writing centers and faculty development programs create more welcoming environments and improve retention.</p>
-                        <p class="card-content">Academic literacy programs can extend beyond campus boundaries to engage directly with local communities. University-community partnerships that bring academic resources to community organizations strengthen both educational outcomes and community development.</p>
-                        <div class="key-points">
-                            <div class="key-point">Intercultural Competence</div>
-                            <div class="key-point">Community Engagement</div>
-                            <div class="key-point">Institutional Reform</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Conclusion Section -->
-            <section id="conclusion" class="content-section">
-                <h2 class="section-title">Toward Sustainable Peace Through Education</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3 class="card-subtitle">Our Shared Vision for Peace</h3>
-                        <div class="global-peace-banner w-full rounded-2xl shadow-2xl p-6 sm:p-10">
-                            <h1 class="text-white text-center font-extrabold tracking-tight" 
-                                style="font-size: clamp(2.5rem, 6vw, 5rem);">
-                                Global Peace
-                            </h1>
-                        </div>
-                        <p class="card-content">The vision of academic literacy as a tool for peace building rests on a fundamental recognition: education shapes not only individual capabilities but collective futures. When educational practices include and empower, they cultivate conditions for sustainable peace.</p>
-                        <div class="highlight">"Sustainable peace requires more than the absence of violence; it demands the presence of justice, equity, and opportunity. Inclusive academic literacy practices contribute to positive peace by addressing structural inequalities, building human security, fostering intercultural understanding, and promoting democratic participation."</div>
-                        <p class="card-content">As institutions and educators embrace inclusive academic literacy practices, they participate in a broader transformation of higher education. This transformation challenges colonial legacies, advances decolonial agendas, and reimagines universities as spaces of genuine pluralism and mutual enrichment.</p>
-                        <div class="key-points">
-                            <div class="key-point">Sustainable Peace</div>
-                            <div class="key-point">Educational Transformation</div>
-                            <div class="key-point">Collective Future</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <!-- African Epistemology Banner Card -->
+        <div class="philosophy-card digital-banner w-full rounded-3xl border-2 border-opacity-30" 
+             style="border-color: var(--glow-blue);">
+            
+            <!-- Text Element -->
+            <h1 class="glow-text text-center uppercase">
+                African Epistemology
+            </h1>
+            
         </div>
+        
+        <!-- Ubuntu Philosophy Card -->
+        <div class="philosophy-card">
+            <h2 class="card-title">Ubuntu Philosophy in Education</h2>
+            <p class="card-content">
+                Ubuntu is a Nguni Bantu term meaning "humanity" and is often translated as "I am because we are." 
+                In educational contexts, Ubuntu emphasizes community, interconnectedness, and collective responsibility. 
+                This philosophy promotes collaborative learning, respect for others, and the idea that education 
+                should serve the community as much as the individual.
+            </p>
+            <p class="card-content mt-4">
+                In practice, Ubuntu in education means:
+                <ul class="list-disc pl-6 mt-2">
+                    <li>Collaborative learning environments</li>
+                    <li>Community-based curriculum development</li>
+                    <li>Respect for diverse knowledge systems</li>
+                    <li>Emphasis on social justice and equity</li>
+                    <li>Education as a collective responsibility</li>
+                </ul>
+            </p>
+        </div>
+        
     </div>
 
-    <footer class="copyright">
-        © 2025 Academic Literacy for Peace. Fostering harmony through inclusive education.
-        <a href="#top" class="top-link">Back to Top ↑</a>
-    </footer>
-
-    <script>
-        // Smooth scroll implementation for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                // Only handle internal section links, not the external 'Home' link
-                if (this.classList.contains('home-tab')) return;
-                
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    // Calculate position to account for sticky nav or header height
-                    const offset = 30; // Small offset for breathing room
-                    window.scrollTo({
-                        top: targetElement.offsetTop - offset,
-                        behavior: 'smooth'
-                    });
-                }
-                
-                // Update active state
-                document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        // Set initial active state based on URL hash if present
-        window.addEventListener('load', () => {
-            const currentHash = window.location.hash || '#intro';
-            const initialTab = document.querySelector(`.tab[href='${currentHash}']`);
-            if (initialTab) {
-                initialTab.classList.add('active');
-            }
-        });
-    </script>
 </body>
 </html>
+
+This code is ready to use - just copy and paste it into an HTML file and open it in your browser.
