@@ -309,6 +309,14 @@
             grid-template-columns: 1fr 1fr;
             gap: 30px;
         }
+        
+        /* Special layout for Field of Peace Studies and its image */
+        .peace-studies-row {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
 
         /* New CSS for image inside cards */
         .card img {
@@ -527,6 +535,11 @@
                 grid-template-columns: 1fr;
             }
             
+            .peace-studies-row {
+                grid-column: 1;
+                grid-template-columns: 1fr;
+            }
+            
             .card {
                 min-height: auto;
             }
@@ -588,15 +601,29 @@
             <section id="peace-studies" class="content-section">
                 <h2 class="section-title">Understanding Peace and Conflict Studies</h2>
                 <div class="card-grid">
-                    <div class="card">
-                        <h3 class="card-subtitle">The Field of Peace Studies</h3>
-                        <p class="card-content">Peace and conflict studies represents an interdisciplinary social science field dedicated to identifying and analysing both violent and nonviolent behaviours, as well as the structural mechanisms that attend conflicts. Unlike traditional strategic studies focused on state-level analysis, peace and conflict studies emphasises **structural violence** and examines conflicts at social and human levels.</p>
-                        <div class="key-points">
-                            <div class="key-point">Interdisciplinary</div>
-                            <div class="key-point">Social Science</div>
-                            <div class="key-point">Structural Analysis</div>
+                    <!-- Special row for Field of Peace Studies and its image -->
+                    <div class="peace-studies-row">
+                        <div class="card">
+                            <h3 class="card-subtitle">The Field of Peace Studies</h3>
+                            <p class="card-content">Peace and conflict studies represents an interdisciplinary social science field dedicated to identifying and analysing both violent and nonviolent behaviours, as well as the structural mechanisms that attend conflicts. Unlike traditional strategic studies focused on state-level analysis, peace and conflict studies emphasises **structural violence** and examines conflicts at social and human levels.</p>
+                            <div class="key-points">
+                                <div class="key-point">Interdisciplinary</div>
+                                <div class="key-point">Social Science</div>
+                                <div class="key-point">Structural Analysis</div>
+                            </div>
+                        </div>
+                        
+                        <!-- New Image Card -->
+                        <div class="card">
+                            <h3 class="card-subtitle">Peace Studies in Academic Context</h3>
+                            <img src="https://github.com/oeybers-cpu/ALiteracy_peace/blob/main/think%20digi%20essay%20with%20peace%20signs.png?raw=true" 
+                                 alt="Peace studies concepts with digital elements"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Peace+Studies+Concepts+Placeholder';"
+                                 class="card-image">
+                            <p class="card-content">This visualization represents the intersection of digital literacy, academic discourse, and peace studies, illustrating how diverse perspectives can converge to create more inclusive approaches to conflict resolution and peacebuilding.</p>
                         </div>
                     </div>
+                    
                     <div class="card">
                         <h3 class="card-subtitle">Historical Evolution</h3>
                         <p class="card-content">The evolution of peace studies reflects humanity's growing understanding of conflict dynamics. Following the devastation of the First World War, the establishment of the League of Nations and the first chair in International Relations at Aberystwyth University in 1919 marked early institutional commitments to peace.</p>
@@ -654,7 +681,7 @@
                 <div class="card-grid">
                     <div class="card">
                         <h3 class="card-subtitle">Rethinking Academic Literacy</h3>
-                        <p class="card-content">Academic literacy traditionally encompasses the reading, writing, thinking, and communication practices that enable students to participate in disciplinary communities. However, the theoretical frameworks guiding academic literacy instruction have historically been dominated by Global North perspectives.</p>
+                        <p class="card-content">Academic literacy traditionally encompasses the reading, writing, thinking, and communication practices that enable students to participate in disciplinary communities. However, the theoretical frameworks guiding academic literacy instruction have historically drawn primarily from Western academic traditions, creating opportunities for more diverse epistemological approaches.</p>
                         <div class="key-points">
                             <div class="key-point">Decolonial</div>
                             <div class="key-point">Cultural Context</div>
