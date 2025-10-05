@@ -282,6 +282,12 @@
             gap: var(--card-gap);
         }
         
+        /* Specific styling for Home Section cards */
+        .content-section#home .card-grid {
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+
         /* New CSS for image inside cards */
         .card img {
             max-width: 100%;
@@ -336,6 +342,8 @@
             line-height: 1.7;
             color: var(--text-light);
             font-size: 1rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .highlight {
@@ -449,6 +457,10 @@
                 right: -20px;
                 bottom: -20px;
             }
+            
+            .content-section#home .card-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -486,7 +498,11 @@
                 <div class="card-grid">
                     <div class="card">
                         <h3 class="card-subtitle">The Power of Inclusive Education</h3>
-                        <p class="card-content">In an increasingly interconnected world, the pursuit of peace extends beyond traditional diplomacy and conflict resolution. Academic literacy—the ability to engage critically with knowledge, communicate effectively across disciplines, and participate meaningfully in scholarly discourse—emerges as a powerful tool for building sustainable peace at local and regional levels.</p>
+                        <img src="https://github.com/oeybers-cpu/ALiteracy_peace/blob/main/think%20digi%20essay.png?raw=true" 
+                             alt="Think digital essay"
+                             onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Think+Digital+Placeholder';"
+                             class="card-image">
+                        <p class="card-content">In an increasingly interconnected world, the pursuit of peace extends beyond traditional diplomacy and conflict resolution. Academic literacy—the ability to engage critically with knowledge, communicate effectively across disciplines, and participate meaningfully in scholarly discourse—emerges as a powerful tool for building sustainable peace at local and regional levels. When grounded in inclusive, culturally responsive pedagogies, academic literacy becomes more than a set of skills; it transforms into a vehicle for social justice, community development, and the creation of conditions that eliminate the root causes of violence.</p>
                     </div>
                     <div class="card">
                         <h3 class="card-subtitle">Transforming Education for Peace</h3>
@@ -494,7 +510,7 @@
                              alt="Collaborative peace-building through education"
                              onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Collaboration+Placeholder';"
                              class="card-image">
-                        <p class="card-content">When grounded in inclusive, culturally responsive pedagogies, academic literacy becomes more than a set of skills; it transforms into a vehicle for social justice, community development, and the creation of conditions that eliminate the root causes of violence.</p>
+                        <p class="card-content">When grounded in inclusive, culturally responsive pedagogies, academic literacy becomes more than a set of skills; it transforms into a vehicle for social justice, community development, and the creation of conditions that eliminate the root causes of violence. The African Theory of Academic Literacy (ATAL) provides a powerful framework for realising this vision. By grounding academic literacy instruction in Ubuntu philosophy, validating indigenous knowledge systems, and connecting learning to community needs, ATAL creates educational environments where diverse students can thrive.</p>
                     </div>
                 </div>
             </section>
@@ -721,4 +737,3 @@
     </script>
 </body>
 </html>
-```
