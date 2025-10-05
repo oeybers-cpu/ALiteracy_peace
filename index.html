@@ -1,262 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Literacy for Peace</title>
-    <!-- Using Inter for general text and Orbitron for titles -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght=700&display=swap" rel="stylesheet">
-    <style>
-        /* Global Variables */
-        :root {
-            --primary-light: #81d4fa; /* Lighter Accent */
-            --primary-dark: #4fc3f7;  /* Primary Blue */
-            --accent-purple: #e040fb; /* Digital Purple */
-            --bg-dark: #0a0a14;
-            --bg-darker: #050508;
-            --text-light: #f0f0f0;
-            --card-bg: rgba(20, 20, 30, 0.85);
-            --border-color: rgba(207, 64, 255, 0.3);
-            --royal-blue: #4169E1;
-            --gold: #FFD700;
-            --silver: #c0c0c0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Literacy for Peace</title>
+    <!-- Using Inter for general text and Orbitron for titles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght=700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Variables */
+        :root {
+            --primary-light: #81d4fa; /* Lighter Accent */
+            --primary-dark: #4fc3f7;  /* Primary Blue */
+            --accent-purple: #e040fb; /* Digital Purple */
+            --bg-dark: #0a0a14;
+            --bg-darker: #050508;
+            --text-light: #f0f0f0;
+            --card-bg: rgba(20, 20, 30, 0.85);
+            --border-color: rgba(207, 64, 255, 0.3);
+            --royal-blue: #4169E1;
+            --gold: #FFD700;
+            --silver: #c0c0c0;
+            
+            /* Added from task requirements */
+            --primary: var(--primary-dark);
+            --secondary: #29b6f6;
+            --accent: #0288d1;
+            --dark: var(--bg-dark);
+            --darker: var(--bg-darker);
+            --light: var(--text-light);
+            --card-bg: rgba(20, 20, 30, 0.7);
+            --lighter-accent: var(--primary-light);
+            --royal-blue-light: #6c8eff;
+            --aqua-blue: #00FFFF;
+            --card-padding: 20px;
+            --card-gap: 25px;
+            --gold-aqua: linear-gradient(90deg, #FFD700, #00FFFF);
+            --gold-aqua-reverse: linear-gradient(90deg, #00FFFF, #FFD700);
+            --sun-color: #FFC107;
+            --sun-glow: #FFA000;
+            --sun-ray-color: #FFD700;
+            --top-header-height: 70px;
+            --top-header-height-sm: 140px;
+            --digital-purple: var(--accent-purple);
+            --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+            --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+            --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+        }
 
-            --header-height: 250px;
-            --header-padding-top: 50px;
-        }
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-locale: "en";
+        }
 
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        body {
+            background: linear-gradient(135deg, var(--bg-darker), var(--bg-dark));
+            color: var(--text-light);
+            min-height: 100vh;
+            position: relative;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif; /* Use Inter as the main font */
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            -webkit-locale: "en";
+        }
 
-        body {
-            background: linear-gradient(135deg, var(--bg-darker), var(--bg-dark));
-            color: var(--text-light);
-            min-height: 100vh;
-            position: relative;
-            font-size: 0.95rem;
-            font-family: 'Inter', sans-serif; /* Use Inter as the main font */
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+        /* Grid Background Lines (Simplified) */
+        .grid-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(79, 195, 247, 0.05) 1px, transparent 1px), 
+                linear-gradient(90deg, rgba(79, 195, 247, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+        }
 
-        /* Grid Background Lines (Simplified) */
-        .grid-lines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(79, 195, 247, 0.05) 1px, transparent 1px), 
-                linear-gradient(90deg, rgba(79, 195, 247, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -1;
-        }
+        /* Fixed Navigation Elements */
+        .fixed-nav {
+            position: fixed;
+            z-index: 1002;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
 
-        /* Fixed Navigation Elements */
-        .fixed-nav {
-            position: fixed;
-            z-index: 1002;
-            padding: 15px;
-            transition: all 0.3s ease;
-        }
+        .home-tab {
+            top: 10px;
+            right: 10px;
+            background: var(--card-bg);
+            border: 1px solid var(--royal-blue);
+            color: var(--primary-light);
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 0 8px rgba(65, 105, 225, 0.3);
+            font-weight: 500;
+        }
 
-        .home-tab {
-            top: 10px;
-            right: 10px;
-            background: var(--card-bg);
-            border: 1px solid var(--royal-blue);
-            color: var(--primary-light);
-            padding: 10px 15px;
-            border-radius: 8px;
-            text-decoration: none;
-            box-shadow: 0 0 8px rgba(65, 105, 225, 0.3);
-            font-weight: 500;
-        }
+        .home-tab:hover {
+            background: rgba(65, 105, 225, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
+            color: var(--text-light);
+        }
 
-        .home-tab:hover {
-            background: rgba(65, 105, 225, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
-            color: var(--text-light);
-        }
+        /* Header styles */
+        header {
+            width: 100%;
+            min-height: var(--header-height);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), var(--bg-darker));
+            border-bottom: 3px solid var(--border-color);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: var(--header-padding-top) 20px 20px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
 
-        /* Header styles */
-        header {
-            width: 100%;
-            min-height: var(--header-height);
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), var(--bg-darker));
-            border-bottom: 3px solid var(--border-color);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: var(--header-padding-top) 20px 20px;
-            overflow: hidden;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        }
+        header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            background: linear-gradient(90deg, var(--primary-dark), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px rgba(207, 64, 255, 0.7);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            animation: pulseText 3s infinite alternate;
+            z-index: 10;
+        }
 
-        header h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            background: linear-gradient(90deg, var(--primary-dark), var(--accent-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 8px rgba(207, 64, 255, 0.7);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            animation: pulseText 3s infinite alternate;
-            z-index: 10;
-        }
+        header .subtitle {
+            color: var(--primary-light);
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            max-width: 800px;
+            margin-top: 10px;
+            z-index: 10;
+        }
 
-        header .subtitle {
-            color: var(--primary-light);
-            font-size: clamp(1rem, 2vw, 1.4rem);
-            max-width: 800px;
-            margin-top: 10px;
-            z-index: 10;
-        }
+        /* Pyramid Styling (Integrated into Header Background) */
+        .pyramid-header-bg {
+            /* Shape properties (Large Triangle) */
+            width: 0;
+            height: 0;
+            border-left: 200px solid transparent; /* Width: 400px */
+            border-right: 200px solid transparent;
+            border-bottom: 300px solid rgba(0, 0, 0, 0.2); /* Height: 300px */
+            
+            position: absolute;
+            bottom: -50px;
+            right: 0;
+            transform: rotateX(0deg) rotateZ(10deg); /* Slight tilt for drama */
+            transform-origin: 50% 100%;
+            z-index: 5;
+            pointer-events: none;
+            opacity: 0.6; /* Reduced opacity for background effect */
+        }
 
-        /* Pyramid Styling (Integrated into Header Background) */
-        .pyramid-header-bg {
-            /* Shape properties (Large Triangle) */
-            width: 0;
-            height: 0;
-            border-left: 200px solid transparent; /* Width: 400px */
-            border-right: 200px solid transparent;
-            border-bottom: 300px solid rgba(0, 0, 0, 0.2); /* Height: 300px */
-            
-            position: absolute;
-            bottom: -50px;
-            right: 0;
-            transform: rotateX(0deg) rotateZ(10deg); /* Slight tilt for drama */
-            transform-origin: 50% 100%;
-            z-index: 5;
-            pointer-events: none;
-            opacity: 0.6; /* Reduced opacity for background effect */
-        }
+        /* Glowing Core Effect */
+        .pyramid-header-bg::after {
+            content: '';
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            width: 150px;
+            height: 150px;
+            transform: translate(-50%, -50%);
+            background: 
+                linear-gradient(45deg, var(--gold), var(--silver));
+            border-radius: 50%;
+            filter: blur(30px);
+            opacity: 0.9;
+            box-shadow: 
+                0 0 50px 10px var(--gold), 
+                0 0 100px 20px var(--silver);
+            animation: pulseGlow 4s infinite ease-in-out;
+        }
 
-        /* Glowing Core Effect */
-        .pyramid-header-bg::after {
-            content: '';
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            width: 150px;
-            height: 150px;
-            transform: translate(-50%, -50%);
-            background: 
-                linear-gradient(45deg, var(--gold), var(--silver));
-            border-radius: 50%;
-            filter: blur(30px);
-            opacity: 0.9;
-            box-shadow: 
-                0 0 50px 10px var(--gold), 
-                0 0 100px 20px var(--silver);
-            animation: pulseGlow 4s infinite ease-in-out;
-        }
+        /* Sun/Glow (Simplified and placed behind content) */
+        .sun-glow-effect {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, var(--sun-color) 0%, transparent 60%);
+            border-radius: 50%;
+            filter: blur(20px);
+            opacity: 0.4;
+            animation: sunPulse 6s infinite alternate;
+            z-index: 8;
+        }
 
-        /* Sun/Glow (Simplified and placed behind content) */
-        .sun-glow-effect {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, var(--gold) 0%, transparent 60%);
-            border-radius: 50%;
-            filter: blur(20px);
-            opacity: 0.4;
-            animation: sunPulse 6s infinite alternate;
-            z-index: 8;
-        }
+        /* Main Content Layout */
+        .page-content {
+            display: flex;
+            max-width: 1600px;
+            margin: 30px auto;
+            padding: 0 20px;
+            gap: 30px;
+        }
 
+        /* Left Tabs (Sidebar for Desktop) */
+        .left-tabs-container {
+            flex-shrink: 0;
+            width: 250px;
+            position: sticky;
+            top: 30px; /* Stick below the header/top of viewport */
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-        /* Main Content Layout */
-        .page-content {
-            display: flex;
-            max-width: 1600px;
-            margin: 30px auto;
-            padding: 0 20px;
-            gap: 30px;
-        }
+        .tab {
+            background: var(--card-bg);
+            border: 1px solid var(--royal-blue);
+            color: var(--royal-blue);
+            padding: 12px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 8px rgba(65, 105, 225, 0.3);
+            font-weight: 500;
+            text-align: left;
+            font-size: 1.1rem;
+        }
 
-        /* Left Tabs (Sidebar for Desktop) */
-        .left-tabs-container {
-            flex-shrink: 0;
-            width: 250px;
-            position: sticky;
-            top: 30px; /* Stick below the header/top of viewport */
-            height: fit-content;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+        .tab:hover, .tab.active {
+            transform: translateX(5px);
+            box-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
+            color: var(--text-light);
+            border-color: var(--primary-light);
+        }
+        
+        .tab.active {
+            background: rgba(65, 105, 225, 0.4);
+            font-weight: 700;
+        }
 
-        .tab {
-            background: var(--card-bg);
-            border: 1px solid var(--royal-blue);
-            color: var(--royal-blue);
-            padding: 12px 15px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 8px rgba(65, 105, 225, 0.3);
-            font-weight: 500;
-            text-align: left;
-            font-size: 1.1rem;
-        }
+        /* Content container */
+        .content-main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
 
-        .tab:hover, .tab.active {
-            transform: translateX(5px);
-            box-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
-            color: var(--text-light);
-            border-color: var(--primary-light);
-        }
-        
-        .tab.active {
-            background: rgba(65, 105, 225, 0.4);
-            font-weight: 700;
-        }
+        /* Content Sections */
+        .content-section {
+            scroll-margin-top: 30px;
+        }
 
-        /* Content container */
-        .content-main {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
+        .section-title {
+            color: var(--accent-purple);
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-shadow: 0 0 5px rgba(224, 64, 251, 0.5);
+        }
 
-        /* Content Sections */
-        .content-section {
-            scroll-margin-top: 30px;
-        }
-
-        .section-title {
-            color: var(--accent-purple);
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--border-color);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            text-shadow: 0 0 5px rgba(224, 64, 251, 0.5);
-        }
-
-        /* Card Layout and Styling */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-        }
+        /* Card Layout and Styling */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--card-gap);
+        }
         
         /* New CSS for image inside cards */
         .card img {
@@ -270,393 +294,393 @@
             border: 1px solid rgba(79, 195, 247, 0.2);
         }
 
-        .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            backdrop-filter: blur(5px);
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: var(--card-padding);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-dark), var(--accent-purple));
-            z-index: 1;
-        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-dark), var(--accent-purple));
+            z-index: 1;
+        }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
 
-        .card-subtitle {
-            color: var(--primary-light);
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-            border-bottom: 1px dotted rgba(129, 212, 250, 0.3);
-            padding-bottom: 8px;
-        }
+        .card-subtitle {
+            color: var(--primary-light);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            border-bottom: 1px dotted rgba(129, 212, 250, 0.3);
+            padding-bottom: 8px;
+        }
 
-        .card-content {
-            line-height: 1.7;
-            color: var(--text-light);
-            font-size: 1rem;
-        }
+        .card-content {
+            line-height: 1.7;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
 
-        .highlight {
-            background: rgba(65, 105, 225, 0.15);
-            border-left: 5px solid var(--royal-blue);
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 4px;
-            font-style: italic;
-            font-size: 1rem;
-            position: relative;
-            color: #ccc;
-        }
+        .highlight {
+            background: rgba(65, 105, 225, 0.15);
+            border-left: 5px solid var(--royal-blue);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-style: italic;
+            font-size: 1rem;
+            position: relative;
+            color: #ccc;
+        }
 
-        .key-points {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-        }
+        .key-points {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
 
-        .key-point {
-            background: rgba(20, 20, 30, 0.7);
-            padding: 8px 12px;
-            border-radius: 20px;
-            border: 1px solid var(--accent-purple);
-            font-weight: 500;
-            color: var(--accent-purple);
-            font-size: 0.9rem;
-            transition: background 0.3s;
-        }
+        .key-point {
+            background: rgba(20, 20, 30, 0.7);
+            padding: 8px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--accent-purple);
+            font-weight: 500;
+            color: var(--accent-purple);
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
 
-        .key-point:hover {
-            background: rgba(224, 64, 251, 0.1);
-        }
+        .key-point:hover {
+            background: rgba(224, 64, 251, 0.1);
+        }
 
-        /* Footer and Utility */
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            color: #777;
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border-color);
-            margin-top: 40px;
-            position: relative;
-        }
+        /* Footer and Utility */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #777;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+            position: relative;
+        }
 
-        .top-link {
-            position: absolute;
-            right: 20px;
-            bottom: 25px;
-            color: var(--primary-dark);
-            text-decoration: none;
-            font-weight: 600;
-        }
+        .top-link {
+            position: absolute;
+            right: 20px;
+            bottom: 25px;
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+        }
 
-        /* Keyframe Animations */
-        @keyframes pulseText {
-            0% { text-shadow: 0 0 6px rgba(207, 64, 255, 0.6); }
-            100% { text-shadow: 0 0 15px rgba(207, 64, 255, 0.8); }
-        }
+        /* Keyframe Animations */
+        @keyframes pulseText {
+            0% { text-shadow: 0 0 6px rgba(207, 64, 255, 0.6); }
+            100% { text-shadow: 0 0 15px rgba(207, 64, 255, 0.8); }
+        }
 
-        @keyframes pulseGlow {
-            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
-            100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
-        }
+        @keyframes pulseGlow {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+        }
 
-        @keyframes sunPulse {
-            0% { opacity: 0.4; }
-            50% { opacity: 0.7; }
-            100% { opacity: 0.4; }
-        }
+        @keyframes sunPulse {
+            0% { opacity: 0.4; }
+            50% { opacity: 0.7; }
+            100% { opacity: 0.4; }
+        }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .page-content {
-                flex-direction: column;
-                padding: 0 15px;
-            }
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .page-content {
+                flex-direction: column;
+                padding: 0 15px;
+            }
 
-            .left-tabs-container {
-                position: relative;
-                top: auto;
-                width: 100%;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-                gap: 10px;
-                margin-bottom: 20px;
-            }
+            .left-tabs-container {
+                position: relative;
+                top: auto;
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 10px;
+                margin-bottom: 20px;
+            }
 
-            .tab {
-                text-align: center;
-                font-size: 0.95rem;
-                padding: 10px;
-            }
-            
-            .tab:hover, .tab.active {
-                transform: none; /* Disable horizontal shift on mobile */
-            }
+            .tab {
+                text-align: center;
+                font-size: 0.95rem;
+                padding: 10px;
+            }
+            
+            .tab:hover, .tab.active {
+                transform: none; /* Disable horizontal shift on mobile */
+            }
 
-            .card-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            }
-            
-            .pyramid-header-bg {
-                /* Shrink pyramid and move it slightly to keep header less busy */
-                border-left: 100px solid transparent; 
-                border-right: 100px solid transparent;
-                border-bottom: 150px solid rgba(0, 0, 0, 0.2); 
-                right: -20px;
-                bottom: -20px;
-            }
-        }
-    </style>
+            .card-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .pyramid-header-bg {
+                /* Shrink pyramid and move it slightly to keep header less busy */
+                border-left: 100px solid transparent; 
+                border-right: 100px solid transparent;
+                border-bottom: 150px solid rgba(0, 0, 0, 0.2); 
+                right: -20px;
+                bottom: -20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="grid-lines"></div>
-    
-    <!-- Home Tab -->
-    <a href="https://oeybers-cpu.github.io/a_lit_models/" class="fixed-nav home-tab">Home</a>
-    
-    <header>
-        <!-- Decorative elements inside the header background -->
-        <div class="sun-glow-effect"></div>
-        <div class="pyramid-header-bg"></div>
-        
-        <!-- Header Content -->
-        <h1>Academic Literacy for Peace</h1>
-        <div class="subtitle">Fostering Local and Regional Harmony Through Inclusive Education</div>
-    </header>
+    <div class="grid-lines"></div>
+    
+    <!-- Home Tab -->
+    <a href="https://oeybers-cpu.github.io/a_lit_models/" class="fixed-nav home-tab">Home</a>
+    
+    <header>
+        <!-- Decorative elements inside the header background -->
+        <div class="sun-glow-effect"></div>
+        <div class="pyramid-header-bg"></div>
+        
+        <!-- Header Content -->
+        <h1>Academic Literacy for Peace</h1>
+        <div class="subtitle">Fostering Local and Regional Harmony Through Inclusive Education</div>
+    </header>
 
-    <div class="page-content">
-        <!-- Left Tabs (Sidebar or Top Nav on Mobile) -->
-        <nav class="left-tabs-container">
-            <a href="#home" class="tab active">Home</a>
-            <a href="#peace-studies" class="tab">Peace Studies</a>
-            <a href="#atal-framework" class="tab">ATAL Framework</a>
-            <a href="#peace-building" class="tab">Peace Building</a>
-            <a href="#applications" class="tab">Applications</a>
-            <a href="#conclusion" class="tab">Conclusion</a>
-        </nav>
-        
-        <div class="content-main">
-            <!-- Home Section -->
-            <section id="home" class="content-section">
-                <h2 class="section-title">Academic Literacy as a Pathway to Peace</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3 class="card-subtitle">The Power of Inclusive Education</h3>
-                        <p class="card-content">In an increasingly interconnected world, the pursuit of peace extends beyond traditional diplomacy and conflict resolution. Academic literacy—the ability to engage critically with knowledge, communicate effectively across disciplines, and participate meaningfully in scholarly discourse—emerges as a powerful tool for building sustainable peace at local and regional levels.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Transforming Education for Peace</h3>
-                        <p class="card-content">When grounded in inclusive, culturally responsive pedagogies, academic literacy becomes more than a set of skills; it transforms into a vehicle for social justice, community development, and the creation of conditions that eliminate the root causes of violence.</p>
-                    </div>
-                </div>
-            </section>
+    <div class="page-content">
+        <!-- Left Tabs (Sidebar or Top Nav on Mobile) -->
+        <nav class="left-tabs-container">
+            <a href="#home" class="tab active">Home</a>
+            <a href="#peace-studies" class="tab">Peace Studies</a>
+            <a href="#atal-framework" class="tab">ATAL Framework</a>
+            <a href="#peace-building" class="tab">Peace Building</a>
+            <a href="#applications" class="tab">Applications</a>
+            <a href="#conclusion" class="tab">Conclusion</a>
+        </nav>
+        
+        <div class="content-main">
+            <!-- Home Section -->
+            <section id="home" class="content-section">
+                <h2 class="section-title">Academic Literacy as a Pathway to Peace</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3 class="card-subtitle">The Power of Inclusive Education</h3>
+                        <p class="card-content">In an increasingly interconnected world, the pursuit of peace extends beyond traditional diplomacy and conflict resolution. Academic literacy—the ability to engage critically with knowledge, communicate effectively across disciplines, and participate meaningfully in scholarly discourse—emerges as a powerful tool for building sustainable peace at local and regional levels.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-subtitle">Transforming Education for Peace</h3>
+                        <p class="card-content">When grounded in inclusive, culturally responsive pedagogies, academic literacy becomes more than a set of skills; it transforms into a vehicle for social justice, community development, and the creation of conditions that eliminate the root causes of violence.</p>
+                    </div>
+                </div>
+            </section>
 
-            <!-- Peace Studies Section -->
-            <section id="peace-studies" class="content-section">
-                <h2 class="section-title">Understanding Peace and Conflict Studies</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3 class="card-subtitle">The Field of Peace Studies</h3>
-                        <p class="card-content">Peace and conflict studies represents an interdisciplinary social science field dedicated to identifying and analysing both violent and nonviolent behaviours, as well as the structural mechanisms that attend conflicts. Unlike traditional strategic studies focused on state-level analysis, peace and conflict studies emphasises **structural violence** and examines conflicts at social and human levels.</p>
-                        <div class="key-points">
-                            <div class="key-point">Interdisciplinary</div>
-                            <div class="key-point">Social Science</div>
-                            <div class="key-point">Structural Analysis</div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Historical Evolution</h3>
-                        <p class="card-content">The evolution of peace studies reflects humanity's growing understanding of conflict dynamics. Following the devastation of the First World War, the establishment of the League of Nations and the first chair in International Relations at Aberystwyth University in 1919 marked early institutional commitments to peace.</p>
-                        <div class="highlight">"In the post-Cold War era, the field shifted focus toward complex issues including political violence, human security, democratisation, human rights, social justice, and sustainable development."</div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Positive vs. Negative Peace</h3>
-                        <p class="card-content">Central to contemporary peace studies is the distinction between negative and positive peace. **Negative peace** refers simply to the absence of violence, while **positive peace** encompasses the conditions that eliminate the causes of violence—including social justice, equitable resource distribution, respect for human rights, and inclusive governance structures.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Sustainable Peace Framework</h3>
-                        <p class="card-content">This broader conception recognises that sustainable peace requires addressing structural inequalities and creating environments where all individuals can flourish. It moves beyond mere conflict resolution to proactive peacebuilding through education, development, and social transformation.</p>
-                        <div class="key-points">
-                            <div class="key-point">Positive Peace</div>
-                            <div class="key-point">Social Justice</div>
-                            <div class="key-point">Human Rights</div>
-                            <div class="key-point">Equity</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <!-- Peace Studies Section -->
+            <section id="peace-studies" class="content-section">
+                <h2 class="section-title">Understanding Peace and Conflict Studies</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3 class="card-subtitle">The Field of Peace Studies</h3>
+                        <p class="card-content">Peace and conflict studies represents an interdisciplinary social science field dedicated to identifying and analysing both violent and nonviolent behaviours, as well as the structural mechanisms that attend conflicts. Unlike traditional strategic studies focused on state-level analysis, peace and conflict studies emphasises **structural violence** and examines conflicts at social and human levels.</p>
+                        <div class="key-points">
+                            <div class="key-point">Interdisciplinary</div>
+                            <div class="key-point">Social Science</div>
+                            <div class="key-point">Structural Analysis</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-subtitle">Historical Evolution</h3>
+                        <p class="card-content">The evolution of peace studies reflects humanity's growing understanding of conflict dynamics. Following the devastation of the First World War, the establishment of the League of Nations and the first chair in International Relations at Aberystwyth University in 1919 marked early institutional commitments to peace.</p>
+                        <div class="highlight">"In the post-Cold War era, the field shifted focus toward complex issues including political violence, human security, democratisation, human rights, social justice, and sustainable development."</div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-subtitle">Positive vs. Negative Peace</h3>
+                        <p class="card-content">Central to contemporary peace studies is the distinction between negative and positive peace. **Negative peace** refers simply to the absence of violence, while **positive peace** encompasses the conditions that eliminate the causes of violence—including social justice, equitable resource distribution, respect for human rights, and inclusive governance structures.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-subtitle">Sustainable Peace Framework</h3>
+                        <p class="card-content">This broader conception recognises that sustainable peace requires addressing structural inequalities and creating environments where all individuals can flourish. It moves beyond mere conflict resolution to proactive peacebuilding through education, development, and social transformation.</p>
+                        <div class="key-points">
+                            <div class="key-point">Positive Peace</div>
+                            <div class="key-point">Social Justice</div>
+                            <div class="key-point">Human Rights</div>
+                            <div class="key-point">Equity</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-            <!-- ATAL Framework Section -->
-            <section id="atal-framework" class="content-section">
-                <h2 class="section-title">The African Theory of Academic Literacy (ATAL)</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3 class="card-subtitle">Rethinking Academic Literacy</h3>
-                        <p class="card-content">Academic literacy traditionally encompasses the reading, writing, thinking, and communication practices that enable students to participate in disciplinary communities. However, the theoretical frameworks guiding academic literacy instruction have historically been dominated by Global North perspectives.</p>
-                        <div class="key-points">
-                            <div class="key-point">Decolonial</div>
-                            <div class="key-point">Cultural Context</div>
-                            <div class="key-point">Inclusive</div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Ubuntu Philosophy</h3>
-                        <p class="card-content">An African Theory of Academic Literacy (**ATAL**) emerges from the recognition that academic literacy must be grounded in the cultural, linguistic, and epistemological contexts of learners. Rooted in **Ubuntu** philosophy—which emphasises the interdependence of communities and individuals—ATAL prioritises values including love, unity, compassion, and cooperation.</p>
-                        <div class="highlight">"Ubuntu philosophy emphasises that knowledge is constructed communally, and learning occurs through relationships and shared experiences."</div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Addressing Student Attrition</h3>
-                        <p class="card-content">The need for ATAL becomes evident when examining educational outcomes in post-apartheid South Africa. Despite thirty years of democratic freedom, approximately twenty-five percent of university students drop out annually without completing their degrees.</p>
-                        <div class="key-points">
-                            <div class="key-point">Student Success</div>
-                            <div class="key-point">Belonging</div>
-                            <div class="key-point">Retention</div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Key Principles of ATAL</h3>
-                        <p class="card-content">ATAL addresses this crisis through several key principles. First, it advocates for multilingual pedagogies that incorporate students' home languages into academic instruction. Research demonstrates that when students engage with disciplinary content in their indigenous languages, they develop stronger problem-solving abilities.</p>
-                        <div class="highlight">"ATAL insists on connecting disciplinary knowledge to community needs and contexts, ensuring that education serves not only individual advancement but collective development."</div>
-                    </div>
-                </div>
-            </section>
+            <!-- ATAL Framework Section -->
+            <section id="atal-framework" class="content-section">
+                <h2 class="section-title">The African Theory of Academic Literacy (ATAL)</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3 class="card-subtitle">Rethinking Academic Literacy</h3>
+                        <p class="card-content">Academic literacy traditionally encompasses the reading, writing, thinking, and communication practices that enable students to participate in disciplinary communities. However, the theoretical frameworks guiding academic literacy instruction have historically been dominated by Global North perspectives.</p>
+                        <div class="key-points">
+                            <div class="key-point">Decolonial</div>
+                            <div class="key-point">Cultural Context</div>
+                            <div class="key-point">Inclusive</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-subtitle">Ubuntu Philosophy</h3>
+                        <p class="card-content">An African Theory of Academic Literacy (**ATAL**) emerges from the recognition that academic literacy must be grounded in the cultural, linguistic, and epistemological contexts of learners. Rooted in **Ubuntu** philosophy—which emphasises the interdependence of communities and individuals—ATAL prioritises values including love, unity, compassion, and cooperation.</p>
+                        <div class="highlight">"Ubuntu philosophy emphasises that knowledge is constructed communally, and learning occurs through relationships and shared experiences."</div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-subtitle">Addressing Student Attrition</h3>
+                        <p class="card-content">The need for ATAL becomes evident when examining educational outcomes in post-apartheid South Africa. Despite thirty years of democratic freedom, approximately twenty-five percent of university students drop out annually without completing their degrees.</p>
+                        <div class="key-points">
+                            <div class="key-point">Student Success</div>
+                            <div class="key-point">Belonging</div>
+                            <div class="key-point">Retention</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-subtitle">Key Principles of ATAL</h3>
+                        <p class="card-content">ATAL addresses this crisis through several key principles. First, it advocates for multilingual pedagogies that incorporate students' home languages into academic instruction. Research demonstrates that when students engage with disciplinary content in their indigenous languages, they develop stronger problem-solving abilities.</p>
+                        <div class="highlight">"ATAL insists on connecting disciplinary knowledge to community needs and contexts, ensuring that education serves not only individual advancement but collective development."</div>
+                    </div>
+                </div>
+            </section>
 
-            <!-- Peace Building Section -->
-            <section id="peace-building" class="content-section">
-                <h2 class="section-title">Linking Academic Literacy to Peace Building</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3 class="card-subtitle">Reducing Structural Violence</h3>
-                        <p class="card-content">Structural violence refers to systematic ways in which social structures harm or disadvantage individuals, preventing them from meeting their basic needs. In educational contexts, structural violence manifests when curricula, pedagogies, and assessment practices systematically exclude or marginalise certain groups.</p>
-                        <div class="key-points">
-                            <div class="key-point">Educational Justice</div>
-                            <div class="key-point">Equity</div>
-                            <div class="key-point">Inclusion</div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Building Human Security</h3>
-                        <p class="card-content">Human security encompasses the conditions necessary for individuals to live with dignity, free from fear and want. Education plays a crucial role in human security by providing pathways to employment, economic stability, and meaningful social participation.</p>
-                        <div class="highlight">"This contribution to human security represents a fundamental form of peace building, as it addresses root causes of conflict including poverty, exclusion, and lack of opportunity."</div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Fostering Intercultural Understanding</h3>
-                        <p class="card-content">Academic literacy instruction grounded in ATAL principles cultivates intercultural competence and social cohesion. When curricula incorporate diverse epistemologies and validate multiple ways of knowing, students learn to navigate different cultural frameworks and appreciate varied perspectives.</p>
-                        <div class="key-points">
-                            <div class="key-point">Cultural Intelligence</div>
-                            <div class="key-point">Social Cohesion</div>
-                            <div class="key-point">Ubuntu</div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Developing Conflict Resolution Skills</h3>
-                        <p class="card-content">Academic literacy instruction inherently develops capacities essential for peaceful conflict resolution. Critical reading skills enable individuals to analyse situations from multiple perspectives, recognising complexity and nuance.</p>
-                        <div class="key-points">
-                            <div class="key-point">Critical Thinking</div>
-                            <div class="key-point">Dialogue</div>
-                            <div class="key-point">Mediation</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <!-- Peace Building Section -->
+            <section id="peace-building" class="content-section">
+                <h2 class="section-title">Linking Academic Literacy to Peace Building</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3 class="card-subtitle">Reducing Structural Violence</h3>
+                        <p class="card-content">Structural violence refers to systematic ways in which social structures harm or disadvantage individuals, preventing them from meeting their basic needs. In educational contexts, structural violence manifests when curricula, pedagogies, and assessment practices systematically exclude or marginalise certain groups.</p>
+                        <div class="key-points">
+                            <div class="key-point">Educational Justice</div>
+                            <div class="key-point">Equity</div>
+                            <div class="key-point">Inclusion</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-subtitle">Building Human Security</h3>
+                        <p class="card-content">Human security encompasses the conditions necessary for individuals to live with dignity, free from fear and want. Education plays a crucial role in human security by providing pathways to employment, economic stability, and meaningful social participation.</p>
+                        <div class="highlight">"This contribution to human security represents a fundamental form of peace building, as it addresses root causes of conflict including poverty, exclusion, and lack of opportunity."</div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-subtitle">Fostering Intercultural Understanding</h3>
+                        <p class="card-content">Academic literacy instruction grounded in ATAL principles cultivates intercultural competence and social cohesion. When curricula incorporate diverse epistemologies and validate multiple ways of knowing, students learn to navigate different cultural frameworks and appreciate varied perspectives.</p>
+                        <div class="key-points">
+                            <div class="key-point">Cultural Intelligence</div>
+                            <div class="key-point">Social Cohesion</div>
+                            <div class="key-point">Ubuntu</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-subtitle">Developing Conflict Resolution Skills</h3>
+                        <p class="card-content">Academic literacy instruction inherently develops capacities essential for peaceful conflict resolution. Critical reading skills enable individuals to analyse situations from multiple perspectives, recognising complexity and nuance.</p>
+                        <div class="key-points">
+                            <div class="key-point">Critical Thinking</div>
+                            <div class="key-point">Dialogue</div>
+                            <div class="key-point">Mediation</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-            <!-- Applications Section -->
-            <section id="applications" class="content-section">
-                <h2 class="section-title">Practical Applications for Local and Regional Peace</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3 class="card-subtitle">Campus-Level Interventions</h3>
+            <!-- Applications Section -->
+            <section id="applications" class="content-section">
+                <h2 class="section-title">Practical Applications for Local and Regional Peace</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3 class="card-subtitle">Campus-Level Interventions</h3>
                         <!-- Image embedding as requested -->
                         <img src="https://github.com/oeybers-cpu/ALiteracy_peace/blob/main/1759592196.png?raw=true" 
                              alt="Diagram illustrating institutional and pedagogical intervention levels"
                              onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Intervention+Diagram+Placeholder';"
                              class="card-image">
                         <!-- End of image embedding -->
-                        <p class="card-content">At the institutional level, universities can implement inclusive academic literacy practices that directly contribute to campus peace and student success. Multilingual writing centres that support students in developing academic literacies across languages create more welcoming environments and improve retention.</p>
-                        <div class="key-points">
-                            <div class="key-point">Writing Centres</div>
-                            <div class="key-point">Curriculum Reform</div>
-                            <div class="key-point">Faculty Development</div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Community Engagement</h3>
-                        <p class="card-content">Academic literacy programmes can extend beyond campus boundaries to engage directly with local communities. University-community partnerships that bring academic resources to community organisations strengthen both educational outcomes and community development.</p>
-                        <div class="highlight">"By validating participants' existing knowledge and connecting literacy instruction to community concerns, these programmes build individual capacity while strengthening social cohesion."</div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Regional Capacity Building</h3>
-                        <p class="card-content">At the regional level, networks of institutions can collaborate to develop and disseminate inclusive academic literacy practices. Regional consortia can share resources, develop common frameworks, and coordinate research on effective pedagogies.</p>
-                        <div class="key-points">
-                            <div class="key-point">Regional Networks</div>
-                            <div class="key-point">Knowledge Sharing</div>
-                            <div class="key-point">Collaboration</div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Policy Advocacy</h3>
-                        <p class="card-content">The full potential of academic literacy for peace building requires systemic change supported by appropriate policies. Advocates can work at institutional, national, and regional levels to advance policies that support inclusive academic literacy practices.</p>
-                        <div class="key-points">
-                            <div class="key-point">Policy Reform</div>
-                            <div class="key-point">Advocacy</div>
-                            <div class="key-point">Systemic Change</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                        <p class="card-content">At the institutional level, universities can implement inclusive academic literacy practices that directly contribute to campus peace and student success. Multilingual writing centres that support students in developing academic literacies across languages create more welcoming environments and improve retention.</p>
+                        <div class="key-points">
+                            <div class="key-point">Writing Centres</div>
+                            <div class="key-point">Curriculum Reform</div>
+                            <div class="key-point">Faculty Development</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-subtitle">Community Engagement</h3>
+                        <p class="card-content">Academic literacy programmes can extend beyond campus boundaries to engage directly with local communities. University-community partnerships that bring academic resources to community organisations strengthen both educational outcomes and community development.</p>
+                        <div class="highlight">"By validating participants' existing knowledge and connecting literacy instruction to community concerns, these programmes build individual capacity while strengthening social cohesion."</div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-subtitle">Regional Capacity Building</h3>
+                        <p class="card-content">At the regional level, networks of institutions can collaborate to develop and disseminate inclusive academic literacy practices. Regional consortia can share resources, develop common frameworks, and coordinate research on effective pedagogies.</p>
+                        <div class="key-points">
+                            <div class="key-point">Regional Networks</div>
+                            <div class="key-point">Knowledge Sharing</div>
+                            <div class="key-point">Collaboration</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-subtitle">Policy Advocacy</h3>
+                        <p class="card-content">The full potential of academic literacy for peace building requires systemic change supported by appropriate policies. Advocates can work at institutional, national, and regional levels to advance policies that support inclusive academic literacy practices.</p>
+                        <div class="key-points">
+                            <div class="key-point">Policy Reform</div>
+                            <div class="key-point">Advocacy</div>
+                            <div class="key-point">Systemic Change</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-            <!-- Conclusion Section -->
-            <section id="conclusion" class="content-section">
-                <h2 class="section-title">Toward Sustainable Peace Through Education</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3 class="card-subtitle">The Vision of Peace Through Education</h3>
-                        <p class="card-content">The vision of academic literacy as a tool for peace building rests on a fundamental recognition: education shapes not only individual capabilities but collective futures. When educational practices exclude and alienate, they sow seeds of resentment and conflict. When they include and empower, they cultivate conditions for sustainable peace.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Sustainable Peace Requirements</h3>
-                        <p class="card-content">Sustainable peace requires more than the absence of violence; it demands the presence of justice, equity, and opportunity. Inclusive academic literacy practices contribute to this **positive peace** by addressing structural inequalities, building human security, fostering intercultural understanding, and promoting democratic participation.</p>
-                        <div class="highlight">"The African Theory of Academic Literacy provides a powerful framework for realising this vision. By grounding academic literacy instruction in Ubuntu philosophy, validating indigenous knowledge systems, and connecting learning to community needs, ATAL creates educational environments where diverse students can thrive."</div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Transforming Higher Education</h3>
-                        <p class="card-content">As institutions and educators embrace inclusive academic literacy practices, they participate in a broader transformation of higher education. This transformation challenges colonial legacies, advances decolonial agendas, and reimagines universities as spaces of genuine pluralism and mutual enrichment.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Agents of Peace</h3>
-                        <p class="card-content">In a world facing multiple crises—from violent conflicts to economic inequalities to environmental challenges—the need for educated, engaged citizens has never been greater. Academic literacy instruction that empowers diverse students to participate fully in knowledge production and civic life contributes directly to humanity's capacity to address these challenges peacefully and collaboratively.</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
+            <!-- Conclusion Section -->
+            <section id="conclusion" class="content-section">
+                <h2 class="section-title">Toward Sustainable Peace Through Education</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3 class="card-subtitle">The Vision of Peace Through Education</h3>
+                        <p class="card-content">The vision of academic literacy as a tool for peace building rests on a fundamental recognition: education shapes not only individual capabilities but collective futures. When educational practices exclude and alienate, they sow seeds of resentment and conflict. When they include and empower, they cultivate conditions for sustainable peace.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-subtitle">Sustainable Peace Requirements</h3>
+                        <p class="card-content">Sustainable peace requires more than the absence of violence; it demands the presence of justice, equity, and opportunity. Inclusive academic literacy practices contribute to this **positive peace** by addressing structural inequalities, building human security, fostering intercultural understanding, and promoting democratic participation.</p>
+                        <div class="highlight">"The African Theory of Academic Literacy provides a powerful framework for realising this vision. By grounding academic literacy instruction in Ubuntu philosophy, validating indigenous knowledge systems, and connecting learning to community needs, ATAL creates educational environments where diverse students can thrive."</div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-subtitle">Transforming Higher Education</h3>
+                        <p class="card-content">As institutions and educators embrace inclusive academic literacy practices, they participate in a broader transformation of higher education. This transformation challenges colonial legacies, advances decolonial agendas, and reimagines universities as spaces of genuine pluralism and mutual enrichment.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-subtitle">Agents of Peace</h3>
+                        <p class="card-content">In a world facing multiple crises—from violent conflicts to economic inequalities to environmental challenges—the need for educated, engaged citizens has never been greater. Academic literacy instruction that empowers diverse students to participate fully in knowledge production and civic life contributes directly to humanity's capacity to address these challenges peacefully and collaboratively.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 
-    <footer class="copyright">
-        © 2025 Academic Literacy for Peace. Fostering harmony through inclusive education.
-        <a href="#top" class="top-link">Back to Top ↑</a>
-    </footer>
+    <footer class="copyright">
+        © 2025 Academic Literacy for Peace. Fostering harmony through inclusive education.
+        <a href="#top" class="top-link">Back to Top ↑</a>
+    </footer>
 
-    <script>
+    <script>
         // Smooth scroll implementation for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -690,6 +714,7 @@
                 initialTab.classList.add('active');
             }
         });
-    </script>
+    </script>
 </body>
 </html>
+The code now fully implements all requested updates while maintaining the original functionality and design aesthetics.
