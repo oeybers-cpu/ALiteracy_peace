@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic Literacy for Peace</title>
-    <!-- Using Inter for general text and Orbitron for titles -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Global Variables */
         :root {
-            --primary-light: #81d4fa; /* Lighter Accent */
-            --primary-dark: #4fc3f7;  /* Primary Blue */
-            --accent-purple: #e040fb; /* Digital Purple */
+            --primary-light: #81d4fa;
+            --primary-dark: #4fc3f7;
+            --accent-purple: #e040fb;
             --bg-dark: #0a0a14;
             --bg-darker: #050508;
             --text-light: #f0f0f0;
@@ -21,54 +19,24 @@
             --royal-blue: #4169E1;
             --gold: #FFD700;
             --silver: #c0c0c0;
-            
-            /* Added from task requirements */
-            --primary: var(--primary-dark);
-            --secondary: #29b6f6;
-            --accent: #0288d1;
-            --dark: var(--bg-dark);
-            --darker: var(--bg-darker);
-            --light: var(--text-light);
-            --card-bg: rgba(20, 20, 30, 0.7);
-            --lighter-accent: var(--primary-light);
-            --royal-blue-light: #6c8eff;
-            --aqua-blue: #00FFFF;
             --card-padding: 20px;
             --card-gap: 25px;
-            --gold-aqua: linear-gradient(90deg, #FFD700, #00FFFF);
-            --gold-aqua-reverse: linear-gradient(90deg, #00FFFF, #FFD700);
-            --sun-color: #FFC107;
-            --sun-glow: #FFA000;
-            --sun-ray-color: #FFD700;
-            --top-header-height: 70px;
-            --top-header-height-sm: 140px;
-            --digital-purple: var(--accent-purple);
-            --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
-            --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
-            --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
         }
 
-        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-locale: "en";
         }
 
         body {
             background: linear-gradient(135deg, var(--bg-darker), var(--bg-dark));
             color: var(--text-light);
             min-height: 100vh;
-            position: relative;
-            font-size: 0.95rem;
-            font-family: 'Inter', sans-serif; /* Use Inter as the main font */
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            scroll-behavior: smooth;
-            -webkit-locale: "en";
         }
 
-        /* Grid Background Lines (Simplified) */
         .grid-lines {
             position: fixed;
             top: 0;
@@ -82,12 +50,10 @@
             z-index: -1;
         }
 
-        /* Fixed Navigation Elements */
         .fixed-nav {
             position: fixed;
             z-index: 1002;
             padding: 15px;
-            transition: all 0.3s ease;
         }
 
         .home-tab {
@@ -110,18 +76,15 @@
             color: var(--text-light);
         }
 
-        /* Header styles */
         header {
             width: 100%;
-            min-height: var(--header-height);
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), var(--bg-darker));
             border-bottom: 3px solid var(--border-color);
-            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: var(--header-padding-top) 20px 20px;
+            padding: 40px 20px 20px;
             overflow: hidden;
             text-align: center;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
@@ -150,26 +113,22 @@
             z-index: 10;
         }
 
-        /* Pyramid Styling (Integrated into Header Background) */
         .pyramid-header-bg {
-            /* Shape properties (Large Triangle) */
             width: 0;
             height: 0;
-            border-left: 200px solid transparent; /* Width: 400px */
+            border-left: 200px solid transparent;
             border-right: 200px solid transparent;
-            border-bottom: 300px solid rgba(0, 0, 0, 0.2); /* Height: 300px */
-            
+            border-bottom: 300px solid rgba(0, 0, 0, 0.2);
             position: absolute;
             bottom: -50px;
             right: 0;
-            transform: rotateX(0deg) rotateZ(10deg); /* Slight tilt for drama */
+            transform: rotateX(0deg) rotateZ(10deg);
             transform-origin: 50% 100%;
             z-index: 5;
             pointer-events: none;
-            opacity: 0.6; /* Reduced opacity for background effect */
+            opacity: 0.6;
         }
 
-        /* Glowing Core Effect */
         .pyramid-header-bg::after {
             content: '';
             position: absolute;
@@ -178,8 +137,7 @@
             width: 150px;
             height: 150px;
             transform: translate(-50%, -50%);
-            background: 
-                linear-gradient(45deg, var(--gold), var(--silver));
+            background: linear-gradient(45deg, var(--gold), var(--silver));
             border-radius: 50%;
             filter: blur(30px);
             opacity: 0.9;
@@ -189,7 +147,6 @@
             animation: pulseGlow 4s infinite ease-in-out;
         }
 
-        /* Sun/Glow (Simplified and placed behind content) */
         .sun-glow-effect {
             position: absolute;
             top: 20px;
@@ -204,7 +161,6 @@
             z-index: 8;
         }
 
-        /* Main Content Layout */
         .page-content {
             display: flex;
             max-width: 1600px;
@@ -213,12 +169,11 @@
             gap: 30px;
         }
 
-        /* Left Tabs (Sidebar for Desktop) */
         .left-tabs-container {
             flex-shrink: 0;
             width: 250px;
             position: sticky;
-            top: 30px; /* Stick below the header/top of viewport */
+            top: 30px;
             height: fit-content;
             display: flex;
             flex-direction: column;
@@ -251,7 +206,6 @@
             font-weight: 700;
         }
 
-        /* Content container */
         .content-main {
             flex-grow: 1;
             display: flex;
@@ -259,7 +213,6 @@
             gap: 40px;
         }
 
-        /* Content Sections */
         .content-section {
             scroll-margin-top: 30px;
         }
@@ -275,59 +228,20 @@
             text-shadow: 0 0 5px rgba(224, 64, 251, 0.5);
         }
 
-        /* Card Layout and Styling */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: var(--card-gap);
         }
-        
-        /* Specific styling for Home Section cards */
-        .content-section#home .card-grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        
-        /* Specific styling for Peace Studies section */
-        .content-section#peace-studies .card-grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        
-        /* Special layout for Sustainable Peace Framework and Global Peace Banner */
-        .sustainable-peace-row {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        
-        /* Special layout for Positive vs Negative Peace and its image */
-        .positive-peace-row {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        
-        /* Special layout for Field of Peace Studies and its image */
-        .peace-studies-row {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
 
-        /* New CSS for image inside cards */
         .card img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px; /* Match card styling */
-            margin: 10px 0 15px 0; /* Add space below the image */
+            border-radius: 8px;
+            margin: 10px 0 15px 0;
             display: block;
-            box-shadow: 0 0 10px rgba(79, 195, 247, 0.5); /* Subtle glow matching primary dark */
+            box-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
             border: 1px solid rgba(79, 195, 247, 0.2);
-            /* Consistent sizing for all images */
             max-height: 200px;
             object-fit: cover;
             width: 100%;
@@ -343,7 +257,6 @@
             backdrop-filter: blur(5px);
             position: relative;
             overflow: hidden;
-            /* Set consistent card height */
             min-height: 500px;
             display: flex;
             flex-direction: column;
@@ -417,21 +330,16 @@
             background: rgba(224, 64, 251, 0.1);
         }
 
-        /* Global Peace Banner Styles */
         .global-peace-banner {
-            /* 135deg gives a nice diagonal sweep across the banner */
             background: linear-gradient(135deg, 
-                #0a0a14 0%,          /* Dark Blue/Darkest Base */
-                #5e35b1 30%,         /* Purple Accent */
-                #00bcd4 70%,         /* Turquoise Accent */
-                #4fc3f7 100%         /* Aqua Blue Accent */
+                #0a0a14 0%,
+                #5e35b1 30%,
+                #00bcd4 70%,
+                #4fc3f7 100%
             );
-            /* Optional: Add a subtle inner shadow to make the text pop */
             box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
-            
-            /* Apply Inter font and text effects */
             font-family: 'Inter', sans-serif;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4); /* Subtle white glow */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -439,7 +347,6 @@
             flex-grow: 1;
         }
 
-        /* Footer and Utility */
         footer {
             text-align: center;
             padding: 30px 20px;
@@ -459,7 +366,6 @@
             font-weight: 600;
         }
 
-        /* Keyframe Animations */
         @keyframes pulseText {
             0% { text-shadow: 0 0 6px rgba(207, 64, 255, 0.6); }
             100% { text-shadow: 0 0 15px rgba(207, 64, 255, 0.8); }
@@ -477,7 +383,6 @@
             100% { opacity: 0.4; }
         }
 
-        /* Responsive Design */
         @media (max-width: 1024px) {
             .page-content {
                 flex-direction: column;
@@ -501,7 +406,7 @@
             }
             
             .tab:hover, .tab.active {
-                transform: none; /* Disable horizontal shift on mobile */
+                transform: none;
             }
 
             .card-grid {
@@ -509,35 +414,11 @@
             }
             
             .pyramid-header-bg {
-                /* Shrink pyramid and move it slightly to keep header less busy */
                 border-left: 100px solid transparent; 
                 border-right: 100px solid transparent;
                 border-bottom: 150px solid rgba(0, 0, 0, 0.2); 
                 right: -20px;
                 bottom: -20px;
-            }
-            
-            .content-section#home .card-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .content-section#peace-studies .card-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .sustainable-peace-row {
-                grid-column: 1;
-                grid-template-columns: 1fr;
-            }
-            
-            .positive-peace-row {
-                grid-column: 1;
-                grid-template-columns: 1fr;
-            }
-            
-            .peace-studies-row {
-                grid-column: 1;
-                grid-template-columns: 1fr;
             }
             
             .card {
@@ -549,33 +430,28 @@
 <body>
     <div class="grid-lines"></div>
     
-    <!-- Home Tab -->
     <a href="https://oeybers-cpu.github.io/a_lit_models/" class="fixed-nav home-tab">Home</a>
     
     <header>
-        <!-- Decorative elements inside the header background -->
         <div class="sun-glow-effect"></div>
         <div class="pyramid-header-bg"></div>
         
-        <!-- Header Content -->
         <h1>Academic Literacy for Peace</h1>
         <div class="subtitle">Fostering Local and Regional Harmony Through Inclusive Education</div>
     </header>
 
     <div class="page-content">
-        <!-- Left Tabs (Sidebar or Top Nav on Mobile) -->
         <nav class="left-tabs-container">
-            <a href="#home" class="tab active">Home</a>
+            <a href="#intro" class="tab active">Introduction</a>
             <a href="#peace-studies" class="tab">Peace Studies</a>
-            <a href="#atal-framework" class="tab">ATAL Framework</a>
-            <a href="#peace-building" class="tab">Peace Building</a>
+            <a href="#atal" class="tab">ATAL Framework</a>
             <a href="#applications" class="tab">Applications</a>
             <a href="#conclusion" class="tab">Conclusion</a>
         </nav>
         
         <div class="content-main">
-            <!-- Home Section -->
-            <section id="home" class="content-section">
+            <!-- Introduction Section -->
+            <section id="intro" class="content-section">
                 <h2 class="section-title">Academic Literacy as a Pathway to Peace</h2>
                 <div class="card-grid">
                     <div class="card">
@@ -584,15 +460,13 @@
                              alt="Think digital essay"
                              onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Think+Digital+Placeholder';"
                              class="card-image">
-                        <p class="card-content">In an increasingly interconnected world, the pursuit of peace extends beyond traditional diplomacy and conflict resolution. Academic literacy—the ability to engage critically with knowledge, communicate effectively across disciplines, and participate meaningfully in scholarly discourse—emerges as a powerful tool for building sustainable peace at local and regional levels. When grounded in inclusive, culturally responsive pedagogies, academic literacy becomes more than a set of skills; it transforms into a vehicle for social justice, community development, and the creation of conditions that eliminate the root causes of violence.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Transforming Education for Peace</h3>
-                        <img src="https://github.com/oeybers-cpu/ALiteracy_peace/blob/main/collaborate.png?raw=true" 
-                             alt="Collaborative peace-building through education"
-                             onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Collaboration+Placeholder';"
-                             class="card-image">
-                        <p class="card-content">When grounded in inclusive, culturally responsive pedagogies, academic literacy becomes more than a set of skills; it transforms into a vehicle for social justice, community development, and the creation of conditions that eliminate the root causes of violence. The African Theory of Academic Literacy (ATAL) provides a powerful framework for realising this vision. By grounding academic literacy instruction in Ubuntu philosophy, validating indigenous knowledge systems, and connecting learning to community needs, ATAL creates educational environments where diverse students can thrive.</p>
+                        <p class="card-content">In an increasingly interconnected world, academic literacy emerges as a powerful tool for building sustainable peace at local and regional levels. When grounded in inclusive, culturally responsive pedagogies, academic literacy becomes more than a set of skills—it transforms into a vehicle for social justice, community development, and addressing the root causes of violence.</p>
+                        <p class="card-content">The African Theory of Academic Literacy (ATAL) provides a powerful framework for realizing this vision by connecting learning to community needs and creating educational environments where diverse students can thrive.</p>
+                        <div class="key-points">
+                            <div class="key-point">Inclusive Education</div>
+                            <div class="key-point">Community Development</div>
+                            <div class="key-point">Social Justice</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -601,149 +475,41 @@
             <section id="peace-studies" class="content-section">
                 <h2 class="section-title">Understanding Peace and Conflict Studies</h2>
                 <div class="card-grid">
-                    <!-- Special row for Field of Peace Studies and its image -->
-                    <div class="peace-studies-row">
-                        <div class="card">
-                            <h3 class="card-subtitle">The Field of Peace Studies</h3>
-                            <p class="card-content">Peace and conflict studies represents an interdisciplinary social science field dedicated to identifying and analysing both violent and nonviolent behaviours, as well as the structural mechanisms that attend conflicts. Unlike traditional strategic studies focused on state-level analysis, peace and conflict studies emphasises **structural violence** and examines conflicts at social and human levels.</p>
-                            <div class="key-points">
-                                <div class="key-point">Interdisciplinary</div>
-                                <div class="key-point">Social Science</div>
-                                <div class="key-point">Structural Analysis</div>
-                            </div>
-                        </div>
-                        
-                        <!-- New Image Card -->
-                        <div class="card">
-                            <h3 class="card-subtitle">Peace Studies in Academic Context</h3>
-                            <img src="https://github.com/oeybers-cpu/ALiteracy_peace/blob/main/think%20digi%20essay%20with%20peace%20signs.png?raw=true" 
-                                 alt="Peace studies concepts with digital elements"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Peace+Studies+Concepts+Placeholder';"
-                                 class="card-image">
-                            <p class="card-content">This visualization represents the intersection of digital literacy, academic discourse, and peace studies, illustrating how diverse perspectives can converge to create more inclusive approaches to conflict resolution and peacebuilding.</p>
-                        </div>
-                    </div>
-                    
                     <div class="card">
-                        <h3 class="card-subtitle">Historical Evolution</h3>
-                        <p class="card-content">The evolution of peace studies reflects humanity's growing understanding of conflict dynamics. Following the devastation of the First World War, the establishment of the League of Nations and the first chair in International Relations at Aberystwyth University in 1919 marked early institutional commitments to peace.</p>
-                        <div class="highlight">"In the post-Cold War era, the field shifted focus toward complex issues including political violence, human security, democratisation, human rights, social justice, and sustainable development."</div>
-                    </div>
-                    
-                    <!-- Special row for Positive vs Negative Peace and its image -->
-                    <div class="positive-peace-row">
-                        <div class="card">
-                            <h3 class="card-subtitle">Positive vs. Negative Peace</h3>
-                            <p class="card-content">Central to contemporary peace studies is the distinction between negative and positive peace. **Negative peace** refers simply to the absence of violence, while **positive peace** encompasses the conditions that eliminate the causes of violence—including social justice, equitable resource distribution, respect for human rights, and inclusive governance structures.</p>
-                        </div>
-                        
-                        <!-- New Image Card -->
-                        <div class="card">
-                            <h3 class="card-subtitle">Visualizing Peace Concepts</h3>
-                            <img src="https://github.com/oeybers-cpu/ALiteracy_peace/blob/main/1759649119.png?raw=true" 
-                                 alt="Visual representation of peace concepts"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Peace+Concepts+Placeholder';"
-                                 class="card-image">
-                            <p class="card-content">This visualization illustrates the complex interplay between different dimensions of peace, highlighting how positive peace requires addressing structural issues beyond simply stopping violence.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Special row for Sustainable Peace Framework and Global Peace Banner -->
-                    <div class="sustainable-peace-row">
-                        <div class="card">
-                            <h3 class="card-subtitle">Sustainable Peace Framework</h3>
-                            <p class="card-content">This broader conception recognises that sustainable peace requires addressing structural inequalities and creating environments where all individuals can flourish. It moves beyond mere conflict resolution to proactive peacebuilding through education, development, and social transformation.</p>
-                            <div class="key-points">
-                                <div class="key-point">Positive Peace</div>
-                                <div class="key-point">Social Justice</div>
-                                <div class="key-point">Human Rights</div>
-                                <div class="key-point">Equity</div>
-                            </div>
-                        </div>
-                        
-                        <!-- Global Peace Banner Card -->
-                        <div class="card">
-                            <h3 class="card-subtitle">Global Peace Banner</h3>
-                            <div class="global-peace-banner w-full rounded-2xl shadow-2xl p-6 sm:p-10">
-                                <h1 class="text-white text-center font-extrabold tracking-tight" 
-                                    style="font-size: clamp(2.5rem, 6vw, 5rem);">
-                                    Global Peace
-                                </h1>
-                            </div>
+                        <h3 class="card-subtitle">Positive vs. Negative Peace</h3>
+                        <img src="https://github.com/oeybers-cpu/ALiteracy_peace/blob/main/1759649119.png?raw=true" 
+                             alt="Visual representation of peace concepts"
+                             onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Peace+Concepts+Placeholder';"
+                             class="card-image">
+                        <p class="card-content">Central to contemporary peace studies is the distinction between <strong>negative peace</strong> (the absence of violence) and <strong>positive peace</strong> (the conditions that eliminate the causes of violence). This broader conception recognizes that sustainable peace requires addressing structural inequalities and creating environments where all individuals can flourish.</p>
+                        <div class="highlight">"Positive peace encompasses the conditions that eliminate the causes of violence—including social justice, equitable resource distribution, respect for human rights, and inclusive governance structures."</div>
+                        <p class="card-content">Peace and conflict studies represents an interdisciplinary social science field dedicated to identifying and analyzing both violent and nonviolent behaviors, as well as the structural mechanisms that attend conflicts.</p>
+                        <div class="key-points">
+                            <div class="key-point">Positive Peace</div>
+                            <div class="key-point">Structural Analysis</div>
+                            <div class="key-point">Social Justice</div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- ATAL Framework Section -->
-            <section id="atal-framework" class="content-section">
+            <section id="atal" class="content-section">
                 <h2 class="section-title">The African Theory of Academic Literacy (ATAL)</h2>
                 <div class="card-grid">
                     <div class="card">
-                        <h3 class="card-subtitle">Rethinking Academic Literacy</h3>
-                        <p class="card-content">Academic literacy traditionally encompasses the reading, writing, thinking, and communication practices that enable students to participate in disciplinary communities. However, the theoretical frameworks guiding academic literacy instruction have historically drawn primarily from Western academic traditions, creating opportunities for more diverse epistemological approaches.</p>
+                        <h3 class="card-subtitle">Ubuntu Philosophy in Education</h3>
+                        <img src="https://github.com/oeybers-cpu/ALiteracy_peace/blob/main/think%20digi%20essay%20with%20peace%20signs.png?raw=true" 
+                             alt="Peace studies concepts with digital elements"
+                             onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Peace+Studies+Concepts+Placeholder';"
+                             class="card-image">
+                        <p class="card-content">An African Theory of Academic Literacy (ATAL) emerges from the recognition that academic literacy must be grounded in the cultural, linguistic, and epistemological contexts of learners. Rooted in <strong>Ubuntu philosophy</strong>—which emphasizes the interdependence of communities and individuals—ATAL prioritizes values including love, unity, compassion, and cooperation.</p>
+                        <div class="highlight">"Ubuntu philosophy emphasizes that knowledge is constructed communally, and learning occurs through relationships and shared experiences."</div>
+                        <p class="card-content">ATAL addresses educational challenges through several key principles, including multilingual pedagogies that incorporate students' home languages into academic instruction, and connecting disciplinary knowledge to community needs and contexts.</p>
                         <div class="key-points">
-                            <div class="key-point">Decolonial</div>
+                            <div class="key-point">Ubuntu Philosophy</div>
                             <div class="key-point">Cultural Context</div>
-                            <div class="key-point">Inclusive</div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Ubuntu Philosophy</h3>
-                        <p class="card-content">An African Theory of Academic Literacy (**ATAL**) emerges from the recognition that academic literacy must be grounded in the cultural, linguistic, and epistemological contexts of learners. Rooted in **Ubuntu** philosophy—which emphasises the interdependence of communities and individuals—ATAL prioritises values including love, unity, compassion, and cooperation.</p>
-                        <div class="highlight">"Ubuntu philosophy emphasises that knowledge is constructed communally, and learning occurs through relationships and shared experiences."</div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Addressing Student Attrition</h3>
-                        <p class="card-content">The need for ATAL becomes evident when examining educational outcomes in post-apartheid South Africa. Despite thirty years of democratic freedom, approximately twenty-five percent of university students drop out annually without completing their degrees.</p>
-                        <div class="key-points">
-                            <div class="key-point">Student Success</div>
-                            <div class="key-point">Belonging</div>
-                            <div class="key-point">Retention</div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Key Principles of ATAL</h3>
-                        <p class="card-content">ATAL addresses this crisis through several key principles. First, it advocates for multilingual pedagogies that incorporate students' home languages into academic instruction. Research demonstrates that when students engage with disciplinary content in their indigenous languages, they develop stronger problem-solving abilities.</p>
-                        <div class="highlight">"ATAL insists on connecting disciplinary knowledge to community needs and contexts, ensuring that education serves not only individual advancement but collective development."</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Peace Building Section -->
-            <section id="peace-building" class="content-section">
-                <h2 class="section-title">Linking Academic Literacy to Peace Building</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3 class="card-subtitle">Reducing Structural Violence</h3>
-                        <p class="card-content">Structural violence refers to systematic ways in which social structures harm or disadvantage individuals, preventing them from meeting their basic needs. In educational contexts, structural violence manifests when curricula, pedagogies, and assessment practices systematically exclude or marginalise certain groups.</p>
-                        <div class="key-points">
-                            <div class="key-point">Educational Justice</div>
-                            <div class="key-point">Equity</div>
-                            <div class="key-point">Inclusion</div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Building Human Security</h3>
-                        <p class="card-content">Human security encompasses the conditions necessary for individuals to live with dignity, free from fear and want. Education plays a crucial role in human security by providing pathways to employment, economic stability, and meaningful social participation.</p>
-                        <div class="highlight">"This contribution to human security represents a fundamental form of peace building, as it addresses root causes of conflict including poverty, exclusion, and lack of opportunity."</div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Fostering Intercultural Understanding</h3>
-                        <p class="card-content">Academic literacy instruction grounded in ATAL principles cultivates intercultural competence and social cohesion. When curricula incorporate diverse epistemologies and validate multiple ways of knowing, students learn to navigate different cultural frameworks and appreciate varied perspectives.</p>
-                        <div class="key-points">
-                            <div class="key-point">Cultural Intelligence</div>
-                            <div class="key-point">Social Cohesion</div>
-                            <div class="key-point">Ubuntu</div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Developing Conflict Resolution Skills</h3>
-                        <p class="card-content">Academic literacy instruction inherently develops capacities essential for peaceful conflict resolution. Critical reading skills enable individuals to analyse situations from multiple perspectives, recognising complexity and nuance.</p>
-                        <div class="key-points">
-                            <div class="key-point">Critical Thinking</div>
-                            <div class="key-point">Dialogue</div>
-                            <div class="key-point">Mediation</div>
+                            <div class="key-point">Community Connection</div>
                         </div>
                     </div>
                 </div>
@@ -754,41 +520,18 @@
                 <h2 class="section-title">Practical Applications for Local and Regional Peace</h2>
                 <div class="card-grid">
                     <div class="card">
-                        <h3 class="card-subtitle">Campus-Level Interventions</h3>
-                        <!-- Image embedding as requested -->
-                        <img src="https://github.com/oeybers-cpu/ALiteracy_peace/blob/main/1759592196.png?raw=true" 
-                             alt="Diagram illustrating institutional and pedagogical intervention levels"
-                             onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Intervention+Diagram+Placeholder';"
+                        <h3 class="card-subtitle">Building Peace Through Education</h3>
+                        <img src="https://github.com/oeybers-cpu/ALiteracy_peace/blob/main/collaborate.png?raw=true" 
+                             alt="Collaborative peace-building through education"
+                             onerror="this.onerror=null; this.src='https://placehold.co/500x250/4fc3f7/0a0a14?text=Collaboration+Placeholder';"
                              class="card-image">
-                        <!-- End of image embedding -->
-                        <p class="card-content">At the institutional level, universities can implement inclusive academic literacy practices that directly contribute to campus peace and student success. Multilingual writing centres that support students in developing academic literacies across languages create more welcoming environments and improve retention.</p>
+                        <p class="card-content">Academic literacy instruction grounded in ATAL principles cultivates intercultural competence and social cohesion. When curricula incorporate diverse epistemologies and validate multiple ways of knowing, students learn to navigate different cultural frameworks and appreciate varied perspectives.</p>
+                        <p class="card-content">At the institutional level, universities can implement inclusive academic literacy practices that directly contribute to campus peace and student success. Multilingual writing centers and faculty development programs create more welcoming environments and improve retention.</p>
+                        <p class="card-content">Academic literacy programs can extend beyond campus boundaries to engage directly with local communities. University-community partnerships that bring academic resources to community organizations strengthen both educational outcomes and community development.</p>
                         <div class="key-points">
-                            <div class="key-point">Writing Centres</div>
-                            <div class="key-point">Curriculum Reform</div>
-                            <div class="key-point">Faculty Development</div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Community Engagement</h3>
-                        <p class="card-content">Academic literacy programmes can extend beyond campus boundaries to engage directly with local communities. University-community partnerships that bring academic resources to community organisations strengthen both educational outcomes and community development.</p>
-                        <div class="highlight">"By validating participants' existing knowledge and connecting literacy instruction to community concerns, these programmes build individual capacity while strengthening social cohesion."</div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Regional Capacity Building</h3>
-                        <p class="card-content">At the regional level, networks of institutions can collaborate to develop and disseminate inclusive academic literacy practices. Regional consortia can share resources, develop common frameworks, and coordinate research on effective pedagogies.</p>
-                        <div class="key-points">
-                            <div class="key-point">Regional Networks</div>
-                            <div class="key-point">Knowledge Sharing</div>
-                            <div class="key-point">Collaboration</div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Policy Advocacy</h3>
-                        <p class="card-content">The full potential of academic literacy for peace building requires systemic change supported by appropriate policies. Advocates can work at institutional, national, and regional levels to advance policies that support inclusive academic literacy practices.</p>
-                        <div class="key-points">
-                            <div class="key-point">Policy Reform</div>
-                            <div class="key-point">Advocacy</div>
-                            <div class="key-point">Systemic Change</div>
+                            <div class="key-point">Intercultural Competence</div>
+                            <div class="key-point">Community Engagement</div>
+                            <div class="key-point">Institutional Reform</div>
                         </div>
                     </div>
                 </div>
@@ -799,21 +542,21 @@
                 <h2 class="section-title">Toward Sustainable Peace Through Education</h2>
                 <div class="card-grid">
                     <div class="card">
-                        <h3 class="card-subtitle">The Vision of Peace Through Education</h3>
-                        <p class="card-content">The vision of academic literacy as a tool for peace building rests on a fundamental recognition: education shapes not only individual capabilities but collective futures. When educational practices exclude and alienate, they sow seeds of resentment and conflict. When they include and empower, they cultivate conditions for sustainable peace.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Sustainable Peace Requirements</h3>
-                        <p class="card-content">Sustainable peace requires more than the absence of violence; it demands the presence of justice, equity, and opportunity. Inclusive academic literacy practices contribute to this **positive peace** by addressing structural inequalities, building human security, fostering intercultural understanding, and promoting democratic participation.</p>
-                        <div class="highlight">"The African Theory of Academic Literacy provides a powerful framework for realising this vision. By grounding academic literacy instruction in Ubuntu philosophy, validating indigenous knowledge systems, and connecting learning to community needs, ATAL creates educational environments where diverse students can thrive."</div>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Transforming Higher Education</h3>
+                        <h3 class="card-subtitle">Our Shared Vision for Peace</h3>
+                        <div class="global-peace-banner w-full rounded-2xl shadow-2xl p-6 sm:p-10">
+                            <h1 class="text-white text-center font-extrabold tracking-tight" 
+                                style="font-size: clamp(2.5rem, 6vw, 5rem);">
+                                Global Peace
+                            </h1>
+                        </div>
+                        <p class="card-content">The vision of academic literacy as a tool for peace building rests on a fundamental recognition: education shapes not only individual capabilities but collective futures. When educational practices include and empower, they cultivate conditions for sustainable peace.</p>
+                        <div class="highlight">"Sustainable peace requires more than the absence of violence; it demands the presence of justice, equity, and opportunity. Inclusive academic literacy practices contribute to positive peace by addressing structural inequalities, building human security, fostering intercultural understanding, and promoting democratic participation."</div>
                         <p class="card-content">As institutions and educators embrace inclusive academic literacy practices, they participate in a broader transformation of higher education. This transformation challenges colonial legacies, advances decolonial agendas, and reimagines universities as spaces of genuine pluralism and mutual enrichment.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-subtitle">Agents of Peace</h3>
-                        <p class="card-content">In a world facing multiple crises—from violent conflicts to economic inequalities to environmental challenges—the need for educated, engaged citizens has never been greater. Academic literacy instruction that empowers diverse students to participate fully in knowledge production and civic life contributes directly to humanity's capacity to address these challenges peacefully and collaboratively.</p>
+                        <div class="key-points">
+                            <div class="key-point">Sustainable Peace</div>
+                            <div class="key-point">Educational Transformation</div>
+                            <div class="key-point">Collective Future</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -853,7 +596,7 @@
 
         // Set initial active state based on URL hash if present
         window.addEventListener('load', () => {
-            const currentHash = window.location.hash || '#home';
+            const currentHash = window.location.hash || '#intro';
             const initialTab = document.querySelector(`.tab[href='${currentHash}']`);
             if (initialTab) {
                 initialTab.classList.add('active');
